@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1777557809 source:c:\users\54296\desktop\cafe_virtual\main.cpp
+	<iostream>
+	"FUNCIONES.h"
+
+1777558148 c:\users\54296\desktop\cafe_virtual\funciones.h
+
+1780091410 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
+	<iostream>
+	<cstring>
+	"FUNCIONES.h"
+
+1780093085 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
+	<iostream>
+	<cstring>
+	"Productos.h"
+
+1780092520 c:\users\54296\desktop\cafe_virtual\productos.h
+
