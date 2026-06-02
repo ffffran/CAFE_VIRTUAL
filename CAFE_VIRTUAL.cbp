@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ArchivoProductos.cpp" />
+		<Unit filename="ArchivoProductos.h" />
 		<Unit filename="FUNCIONES.cpp" />
 		<Unit filename="FUNCIONES.h" />
 		<Unit filename="Productos.cpp" />

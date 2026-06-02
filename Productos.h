@@ -7,10 +7,11 @@ class Productos{
         int idProducto;
         char nombreProducto [50];
         float precioProducto;
-        char categoriaProducto [20]; ///(cafetería, pastelería o bebidas)
-        char tamanioProducto [15];    ///(pequeño, mediano o grande)
+        char categoriaProducto;  ///(c = cafetería, p = pastelería o b = bebidas)
+        char tamanioProducto;    ///(p = pequeño, m = mediano o g = grande)
         int stockProducto;
         bool estadoProducto;
+        int stockMinimo;
 
     public:
         void cargar();
@@ -19,24 +20,26 @@ class Productos{
         void set_idProducto(int);
         void set_nombreProducto(char nombre[]);
         void set_precioProducto(float);
-        void set_categoriaProducto(char);
-        void set_tamanioProducto(char);
+        void set_categoriaProducto(char categoria);
+        void set_tamanioProducto(char tamanio);
         void set_stockProducto(int);
         void set_estadoProducto(bool);
+        void set_stockMinimo(int);
 
         int get_idProducto();
         char* get_nombreProducto();
         float get_precioProducto();
-        char* get_categoriaProducto();
-        char* get_tamanioProducto();
+        char get_categoriaProducto();
+        char get_tamanioProducto();
         int get_stockProducto();
         bool get_estadoProducto();
+        int get_stockMinimo();
 
 
-        void hayStock();
-        void aumentarStock();
-        void descontarStock();
-        void stockBajo();
+        bool hayStock();
+        void aumentarStock(int compra);
+        void descontarStock(int venta);
+        bool stockBajo();
 
         void darAlta();
         void darBaja();

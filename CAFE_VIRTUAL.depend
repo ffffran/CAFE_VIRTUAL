@@ -3,17 +3,30 @@
 	<iostream>
 	"FUNCIONES.h"
 
-1777558148 c:\users\54296\desktop\cafe_virtual\funciones.h
+1780368211 c:\users\54296\desktop\cafe_virtual\funciones.h
 
-1780091410 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
+1780368248 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
 	<iostream>
 	<cstring>
 	"FUNCIONES.h"
+	"Productos.h"
+	"ArchivoProductos.h"
 
-1780093085 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
+1780362309 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
 	<iostream>
 	<cstring>
+	<cctype>
 	"Productos.h"
+	"ArchivoProductos.h"
 
-1780092520 c:\users\54296\desktop\cafe_virtual\productos.h
+1780355801 c:\users\54296\desktop\cafe_virtual\productos.h
+
+1780366906 source:c:\users\54296\desktop\cafe_virtual\archivoproductos.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoProductos.h"
+
+1780366906 c:\users\54296\desktop\cafe_virtual\archivoproductos.h
+	"Productos.h"
 
