@@ -13,10 +13,12 @@ class ArchivoProductos{
 
         bool guardar(Productos producto);
         Productos Leer(int posicion);
-        bool contarRegistros(bool estado);
+        int contarRegistros(bool estado);
         int Buscar(int id);
         bool Modificar(Productos producto, int posicion);
         int Listar();
 };
 
 #endif // ARCHIVOPRODUCTOS_H_INCLUDED
+
+

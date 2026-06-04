@@ -3,6 +3,8 @@
 #include "FUNCIONES.h"
 #include "Productos.h"
 #include "ArchivoProductos.h"
+#include "Clientes.h"
+#include "ArchivoClientes.h"
 
 using namespace std;
 
@@ -20,7 +22,7 @@ void menuPrincipal(){
         cout<<"MENU PRINCIPAL"<<endl;
         cout<<"========================"<<endl;
         cout<<"1 - Nueva Compra"<<endl;
-        cout<<"2 - ABM Club CV"<<endl;
+        cout<<"2 - ABM - Membresia"<<endl;
         cout<<"3 - Reportes"<<endl;
         cout<<"0 - Salir"<<endl;
         cout<<"========================"<<endl;
@@ -126,11 +128,10 @@ void menuNuevaCompra(){
 void menuAbm(){
 
     int Opcion;
-    int Crear;
-    int Alta;
-    int Baja;
-    int Modificacion;
-    int Listado;
+    int OpcionAlta;
+    int OpcionBaja;
+    int OpcionModificar;
+    int OpcionListado;
 
     while(true){
 
@@ -140,7 +141,7 @@ void menuAbm(){
         cout<<"========================"<<endl;
         cout<<"1 - Alta";
         cout<<endl;
-        cout<<"2 - Baja";
+        cout<<"2 - Baja Productos";
         cout<<endl;
         cout<<"3 - Modificacion";
         cout<<endl;
@@ -157,7 +158,36 @@ void menuAbm(){
 
         case 1:
 
-            altaProducto();
+            cout<<"MENU ALTA"<<endl;
+            cout<<"========================"<<endl;
+            cout<<"1 - Alta Producto";
+            cout<<endl;
+            cout<<"2 - Alta Cliente";
+            cout<<endl;
+            cout<<"0 - Salir"<<endl;
+            cout<<"========================"<<endl;
+            cout<< "INGRESE OPCION: ";
+            cin>>OpcionAlta;
+
+            system("cls");
+
+            switch(OpcionAlta){
+
+            case 1:
+
+                altaProducto();
+                break;
+
+            case 2:
+
+                altaCliente();
+                break;
+
+            case 0:
+
+                break;
+            }
+
             break;
 
         case 2:
@@ -167,12 +197,69 @@ void menuAbm(){
 
         case 3:
 
+            cout<<"MENU MODIFICACIONES"<<endl;
+            cout<<"========================"<<endl;
+            cout<<"1 - Modificar Producto";
+            cout<<endl;
+            cout<<"2 - Modificar Cliente";
+            cout<<endl;
+            cout<<"0 - Salir"<<endl;
+            cout<<"========================"<<endl;
+            cout<< "INGRESE OPCION: ";
+            cin>>OpcionModificar;
 
+            switch(OpcionModificar){
+
+            case 1:
+
+                modificarProducto();
+                break;
+
+            case 2:
+
+                modificarCliente();
+                break;
+
+            case 0:
+
+                break;
+            }
+
+            ///modificarProveedor();  DESARROLLAR
             break;
 
         case 4:
 
-            mostrarProductos();
+            cout<<"MENU LISTADO"<<endl;
+            cout<<"========================"<<endl;
+            cout<<"1 - Listar Productos";
+            cout<<endl;
+            cout<<"2 - Listar Clientes";
+            cout<<endl;
+            cout<<"0 - Salir"<<endl;
+            cout<<"========================"<<endl;
+            cout<< "INGRESE OPCION: ";
+            cin>>OpcionListado;
+
+            system("cls");
+
+            switch(OpcionListado){
+
+            case 1:
+
+                mostrarProductos();
+                break;
+
+            case 2:
+
+                mostrarClientes();
+                break;
+
+            case 0:
+
+                break;
+            }
+
             break;
 
         case 0:
@@ -213,7 +300,7 @@ void altaProducto(){
         int id;
         int posicion;
 
-        cout<<"Ingrese el ID del producto que quiere dar de baja: ";
+        cout<<"Ingrese el ID del producto que quiere dar de alta: ";
         cin>>id;
 
         posicion = archivo.Buscar(id);
@@ -259,7 +346,7 @@ void bajaProducto(){
 
     posicion = archivo.Buscar(id);
 
-    if(posicion == -1){
+    if(posicion <= 0){
 
         cout<<"Producto NO encontrado."<<endl;
         system("pause");
@@ -307,6 +394,23 @@ void mostrarProductos(){
 
     int cantidadTotal = archivo.Listar();
 
+    int activos = archivo.contarRegistros(true);
+    int inactivos = archivo.contarRegistros(false);
+
+    if(activos == 0){
+
+        cout<<"No hay productos Acitvos"<<endl;
+        system("pause");
+        return;
+    }
+
+    if(inactivos == 0){
+
+        cout<<"No hay productos Inactivos"<<endl;
+        system("pause");
+        return;
+    }
+
     for(int i = 0; i < cantidadTotal; i++){
 
         producto = archivo.Leer(i);
@@ -328,6 +432,80 @@ void mostrarProductos(){
     system("pause");
 }
 
+void modificarProducto(){
+
+    Productos producto;
+    ArchivoProductos archivo;
+
+    int id;
+    int posicion;
+
+    cout<<"Ingrese el ID del producto que quiere modificar: ";
+    cin>>id;
+
+    posicion = archivo.Buscar(id);
+
+    if(posicion < 0){
+
+        cout<<"Producto NO encontrado."<<endl;
+        system("pause");
+        return;
+    }
+
+    system("cls");
+
+    producto = archivo.Leer(posicion);
+
+    int opcion;
+
+    cout<<"Que campo quiere cambiar?"<<endl;
+    cout<<"==========================="<<endl;
+    cout<<"1 - Nombre"<<endl;
+    cout<<"2 - Precio"<<endl;
+    cout<<"3 - Stock Minimo"<<endl;
+    cout<<"0 - Salir"<<endl;
+    cout<<"==========================="<<endl;
+    cin>>opcion;
+
+    switch(opcion){
+
+    case 1:
+
+        char nombreNuevo[50];
+
+        cout<<"Ingrese su nuevo nombre: ";
+        cin>>nombreNuevo;
+
+        producto.set_nombreProducto(nombreNuevo);
+        break;
+
+    case 2:
+
+        float precioNuevo;
+
+        cout<<"Ingrese su nuevo precio: $";
+        cin>>precioNuevo;
+
+        producto.set_precioProducto(precioNuevo);
+        break;
+
+    case 3:
+
+        int stockMinimoNuevo;
+
+        cout<<"Ingrese su nuevo Stock Minimo: ";
+        cin>>stockMinimoNuevo;
+
+        producto.set_stockMinimo(stockMinimoNuevo);
+        break;
+
+    case 0:
+
+        return;
+    }
+
+    archivo.Modificar(producto, posicion);
+}
 
 /**
 void mostrar productos original, puede usarse para reportes
@@ -346,3 +524,169 @@ void mostrar productos original, puede usarse para reportes
 
     system("pause");
 */
+
+void altaCliente(){
+
+    Clientes cliente;
+    ArchivoClientes archivo;
+
+    cliente.cargar();
+
+    if(archivo.guardar(cliente)){
+
+        cout<<"El cliente se guardo correctamente! :)"<<endl;
+    }
+    else{
+
+        cout<<"Error al guardar cliente. :("<<endl;
+    }
+
+    system("pause");
+}
+
+void mostrarClientes(){
+
+    Clientes cliente;
+    ArchivoClientes archivo;
+
+    int opcion;
+
+    cout<<"MENU ABML"<<endl;
+    cout<<"========================"<<endl;
+    cout<<"1 - Miembros";
+    cout<<endl;
+    cout<<"2 - No Miembros";
+    cout<<endl;
+    cout<<"3 - Todos";
+    cout<<endl;
+    cout<<"0 - Salir"<<endl;
+    cout<<"========================"<<endl;
+    cout<< "INGRESE OPCION: ";
+    cin>>opcion;
+
+    int cantidadTotal = archivo.Listar();
+
+    int activos = archivo.contarRegistros(true);
+    int inactivos = archivo.contarRegistros(false);
+
+    if(activos == 0){
+
+        cout<<"Ningun cliente es miembro"<<endl;
+        system("pause");
+        return;
+    }
+
+    if(inactivos == 0){
+
+        cout<<"Todos los clientes son miembros"<<endl;
+        system("pause");
+        return;
+    }
+
+    for(int i = 0; i < cantidadTotal; i++){
+
+        cliente = archivo.Leer(i);
+
+        if(opcion == 1 && cliente.get_miembroCliente()){
+
+            cliente.mostrar();
+        }
+        else if(opcion == 2 && !cliente.get_miembroCliente()){
+
+            cliente.mostrar();
+        }
+        else if(opcion == 3){
+
+            cliente.mostrar();
+            cout<<endl;
+        }
+
+    }
+
+    system("pause");
+}
+
+void modificarCliente(){
+
+    Clientes cliente;
+    ArchivoClientes archivo;
+
+    int id;
+    int posicion;
+
+    cout<<"Ingrese el ID de cliente que quiere modificar: ";
+    cin>>id;
+
+    posicion = archivo.Buscar(id);
+
+    if(posicion < 0){
+
+        cout<<"Cliente NO encontrado."<<endl;
+        system("pause");
+        return;
+    }
+
+    system("cls");
+    cliente = archivo.Leer(posicion);
+
+    int opcion;
+
+    cout<<"Que campo quiere cambiar?"<<endl;
+    cout<<"==========================="<<endl;
+    cout<<"1 - Nombre"<<endl;
+    cout<<"2 - DNI"<<endl;
+    cout<<"3 - Telefono"<<endl;
+    cout<<"4 - Mail"<<endl;
+    cout<<"0 - Salir"<<endl;
+    cout<<"==========================="<<endl;
+    cin>>opcion;
+
+    switch(opcion){
+
+    case 1:
+
+        char nombreNuevo[40];
+
+        cout<<"Ingrese su nuevo nombre: ";
+        cin>>nombreNuevo;
+
+        cliente.set_nombreCliente(nombreNuevo);
+        break;
+
+    case 2:
+
+        int dniNuevo;
+
+        cout<<"Ingrese su nuevo dni: ";
+        cin>>dniNuevo;
+
+        cliente.set_dniCliente(dniNuevo);
+        break;
+
+    case 3:
+
+        char telefonoNuevo[20];
+
+        cout<<"Ingrese su nuevo telefono: ";
+        cin>>telefonoNuevo;
+
+        cliente.set_telefonoCliente(telefonoNuevo);
+        break;
+
+    case 4:
+
+        char mailNuevo[60];
+
+        cout<<"Ingrese su nuevo mail: ";
+        cin>>mailNuevo;
+
+        cliente.set_mailCliente(mailNuevo);
+        break;
+
+    case 0:
+
+        return;
+    }
+
+    archivo.Modificar(cliente, posicion);
+}

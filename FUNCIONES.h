@@ -5,8 +5,15 @@ void menuPrincipal();
 void menuNuevaCompra();
 void menuAbm();
 void menuReportes();
+
+
 void altaProducto();
 void bajaProducto();
 void mostrarProductos();
+void modificarProducto();
+
+void altaCliente();
+void mostrarClientes();
+void modificarCliente();
 
 #endif // FUNCIONES_H_INCLUDED

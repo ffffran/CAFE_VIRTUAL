@@ -52,7 +52,7 @@ Productos ArchivoProductos::Leer(int posicion){
     return producto;
 }
 
-bool ArchivoProductos::contarRegistros(bool estado){
+int ArchivoProductos::contarRegistros(bool estado){
 
     int contador = 0;
 

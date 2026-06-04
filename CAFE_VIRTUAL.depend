@@ -1,32 +1,52 @@
 # depslib dependency file v1.0
-1777557809 source:c:\users\54296\desktop\cafe_virtual\main.cpp
+1780368947 source:c:\users\54296\desktop\cafe_virtual\main.cpp
 	<iostream>
 	"FUNCIONES.h"
 
-1780368211 c:\users\54296\desktop\cafe_virtual\funciones.h
+1780537852 c:\users\54296\desktop\cafe_virtual\funciones.h
 
-1780368248 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
+1780584206 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
 	<iostream>
 	<cstring>
 	"FUNCIONES.h"
 	"Productos.h"
 	"ArchivoProductos.h"
+	"Clientes.h"
+	"ArchivoClientes.h"
 
-1780362309 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
+1780542449 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
 	<iostream>
 	<cstring>
 	<cctype>
 	"Productos.h"
 	"ArchivoProductos.h"
 
-1780355801 c:\users\54296\desktop\cafe_virtual\productos.h
+1780450504 c:\users\54296\desktop\cafe_virtual\productos.h
 
-1780366906 source:c:\users\54296\desktop\cafe_virtual\archivoproductos.cpp
+1780582206 source:c:\users\54296\desktop\cafe_virtual\archivoproductos.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
 	"ArchivoProductos.h"
 
-1780366906 c:\users\54296\desktop\cafe_virtual\archivoproductos.h
+1780582206 c:\users\54296\desktop\cafe_virtual\archivoproductos.h
 	"Productos.h"
+
+1780583962 source:c:\users\54296\desktop\cafe_virtual\archivoclientes.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoClientes.h"
+
+1780583962 c:\users\54296\desktop\cafe_virtual\archivoclientes.h
+	"Clientes.h"
+
+1780450313 c:\users\54296\desktop\cafe_virtual\clientes.h
+
+1780536953 source:c:\users\54296\desktop\cafe_virtual\clientes.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Clientes.h"
+	"ArchivoClientes.h"
 

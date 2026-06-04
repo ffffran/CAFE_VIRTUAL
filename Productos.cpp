@@ -22,7 +22,18 @@ void Productos::cargar(){
     cout<<"========================"<<endl;
     cout<<"Ingrese el ID del producto: ";
     cin>> id;
-    set_idProducto(id);
+
+    ArchivoProductos archivo;
+
+    if(archivo.Buscar(id) != -1){
+
+        cout<<"El ID ingresado ya existe, por favor ingrese otro."<<endl;
+        system("pause");
+    }
+    else{
+
+        set_idProducto(id);
+    }
 
     system("cls");
 
@@ -83,8 +94,19 @@ void Productos::mostrar(){
     cout<<"ID: "<<idProducto<<endl;
     cout<<"NOMBRE: "<<nombreProducto<<endl;
     cout<<"PRECIO: "<<precioProducto<<endl;
-    cout<<"CATEGORIA: "<<categoriaProducto<<endl;
+
+    if(categoriaProducto == 'B'){
+        cout<<"CATEGORIA: Bebidas"<<endl;
+    }
+    else if(categoriaProducto == 'C'){
+        cout<<"CATEGORIA: Cafeteria"<<endl;
+    }
+    else if(categoriaProducto == 'P'){
+        cout<<"CATEGORIA: Pasteleria"<<endl;
+    }
+
     cout<<"STOCK: "<<stockProducto<<endl;
+
     if(estadoProducto){
         cout<<"ESTADO: Activo"<<endl<<endl;
     }
@@ -253,11 +275,6 @@ void Productos::darBaja(){
 
     estadoProducto = false;
 }
-
-
-
-
-
 
 
 
