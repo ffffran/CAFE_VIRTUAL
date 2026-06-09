@@ -141,7 +141,7 @@ int ArchivoClientes::Listar(){
     if(CArchivo == nullptr){
 
         cout<<"No se pudo abrir el archivo";
-        return false;
+        return 0;
     }
 
     fseek(CArchivo, 0, SEEK_END);

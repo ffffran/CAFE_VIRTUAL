@@ -15,24 +15,11 @@ void Clientes::cargar(){
     char telefono[20];
     char mail[60];
 
-    cout<<"Alta de Clientes - IDs"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese el ID del Cliente: ";
-    cin>> id;
-
     ArchivoClientes archivo;
 
-    if(archivo.Buscar(id) != -1){
+    int cantidad = archivo.Listar();
 
-        cout<<"El ID ingresado ya existe, por favor ingrese otro."<<endl;
-        system("pause");
-    }
-    else{
-
-        set_idCliente(id);
-    }
-
-    system("cls");
+    set_idCliente(cantidad);
 
     cout<<"Alta de Clientes - Nombre"<<endl;
     cout<<"========================"<<endl;
@@ -97,11 +84,11 @@ void Clientes::mostrar(){
     cout<<"MAIL: "<<mailCliente<<endl;
 
     if(miembroCliente){
-        cout<<"MIEMBRO: SI"<<endl;
+        cout<<"MIEMBRO: SI"<<endl<<endl;
     }
     else{
 
-        cout<<"MIEMBRO: NO"<<endl;
+        cout<<"MIEMBRO: NO"<<endl<<endl;
     }
 }
 

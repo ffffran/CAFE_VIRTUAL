@@ -3,9 +3,9 @@
 	<iostream>
 	"FUNCIONES.h"
 
-1780537852 c:\users\54296\desktop\cafe_virtual\funciones.h
+1780781064 c:\users\54296\desktop\cafe_virtual\funciones.h
 
-1780584206 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
+1781044750 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
 	<iostream>
 	<cstring>
 	"FUNCIONES.h"
@@ -13,8 +13,10 @@
 	"ArchivoProductos.h"
 	"Clientes.h"
 	"ArchivoClientes.h"
+	"Ventas.h"
+	"ArchivoVentas.h"
 
-1780542449 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
+1781039858 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
 	<iostream>
 	<cstring>
 	<cctype>
@@ -23,30 +25,54 @@
 
 1780450504 c:\users\54296\desktop\cafe_virtual\productos.h
 
-1780582206 source:c:\users\54296\desktop\cafe_virtual\archivoproductos.cpp
+1781039938 source:c:\users\54296\desktop\cafe_virtual\archivoproductos.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
 	"ArchivoProductos.h"
 
-1780582206 c:\users\54296\desktop\cafe_virtual\archivoproductos.h
+1781039797 c:\users\54296\desktop\cafe_virtual\archivoproductos.h
 	"Productos.h"
 
-1780583962 source:c:\users\54296\desktop\cafe_virtual\archivoclientes.cpp
+1781044138 source:c:\users\54296\desktop\cafe_virtual\archivoclientes.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
 	"ArchivoClientes.h"
 
-1780583962 c:\users\54296\desktop\cafe_virtual\archivoclientes.h
+1781029573 c:\users\54296\desktop\cafe_virtual\archivoclientes.h
 	"Clientes.h"
 
 1780450313 c:\users\54296\desktop\cafe_virtual\clientes.h
 
-1780536953 source:c:\users\54296\desktop\cafe_virtual\clientes.cpp
+1781044462 source:c:\users\54296\desktop\cafe_virtual\clientes.cpp
 	<iostream>
 	<cstring>
 	<cctype>
 	"Clientes.h"
 	"ArchivoClientes.h"
+
+1780976323 source:c:\users\54296\desktop\cafe_virtual\ventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Ventas.h"
+	"Clientes.h"
+
+1780617139 source:c:\users\54296\desktop\cafe_virtual\fecha.cpp
+	<iostream>
+	"Fecha.h"
+
+1780616753 c:\users\54296\desktop\cafe_virtual\fecha.h
+
+1780708525 c:\users\54296\desktop\cafe_virtual\ventas.h
+
+1780975772 source:c:\users\54296\desktop\cafe_virtual\archivoventas.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoVentas.h"
+
+1780975533 c:\users\54296\desktop\cafe_virtual\archivoventas.h
+	"Ventas.h"
 

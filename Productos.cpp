@@ -17,25 +17,9 @@ void Productos::cargar(){
     bool estado;
     int stockMin;
 
-
-    cout<<"Alta de Productos - IDs"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese el ID del producto: ";
-    cin>> id;
-
     ArchivoProductos archivo;
 
-    if(archivo.Buscar(id) != -1){
-
-        cout<<"El ID ingresado ya existe, por favor ingrese otro."<<endl;
-        system("pause");
-    }
-    else{
-
-        set_idProducto(id);
-    }
-
-    system("cls");
+    set_idProducto(archivo.AuxContar() + 1);
 
     cout<<"Alta de Productos - Nombre"<<endl;
     cout<<"========================"<<endl;

@@ -36,10 +36,14 @@
 		<Unit filename="ArchivoClientes.h" />
 		<Unit filename="ArchivoProductos.cpp" />
 		<Unit filename="ArchivoProductos.h" />
+		<Unit filename="ArchivoVentas.cpp" />
+		<Unit filename="ArchivoVentas.h" />
 		<Unit filename="Clientes.cpp" />
 		<Unit filename="Clientes.h" />
 		<Unit filename="FUNCIONES.cpp" />
 		<Unit filename="FUNCIONES.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
 		<Unit filename="Productos.cpp" />
 		<Unit filename="Productos.h" />
 		<Unit filename="Ventas.cpp" />

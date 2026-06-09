@@ -141,7 +141,50 @@ int ArchivoProductos::Listar(){
     if(PArchivo == nullptr){
 
         cout<<"No se pudo abrir el archivo";
-        return false;
+        return 0;
+    }
+
+    fseek(PArchivo, 0, SEEK_END);
+
+    cantidad = ftell(PArchivo) / sizeof(Productos);
+
+    fclose(PArchivo);
+
+    return cantidad;
+}
+
+void ArchivoProductos::ListarMas(){
+
+    Productos producto;
+    ArchivoProductos parchivo;
+
+    int cantidad = parchivo.Listar();
+
+    for(int i = 0; i < cantidad ; i++){
+
+        producto = parchivo.Leer(i);
+
+        if(producto.get_estadoProducto() == true){
+
+            producto.mostrar();
+        }
+    }
+
+    system("pause");
+}
+
+int ArchivoProductos::AuxContar(){
+
+    FILE *PArchivo;
+
+    PArchivo = fopen(nombreArchivo, "rb");
+
+    int cantidad;
+
+    if(PArchivo == nullptr){
+
+        cout<<"Este es tu Primer Producto!!!!"<<endl<<endl;
+        return 0;
     }
 
     fseek(PArchivo, 0, SEEK_END);
