@@ -3,9 +3,9 @@
 	<iostream>
 	"FUNCIONES.h"
 
-1780781064 c:\users\54296\desktop\cafe_virtual\funciones.h
+1781060924 c:\users\54296\desktop\cafe_virtual\funciones.h
 
-1781044750 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
+1781135398 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
 	<iostream>
 	<cstring>
 	"FUNCIONES.h"
@@ -15,8 +15,10 @@
 	"ArchivoClientes.h"
 	"Ventas.h"
 	"ArchivoVentas.h"
+	"DetalleVentas.h"
+	"ArchivoDetalleVentas.h"
 
-1781039858 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
+1781064039 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
 	<iostream>
 	<cstring>
 	<cctype>
@@ -25,7 +27,7 @@
 
 1780450504 c:\users\54296\desktop\cafe_virtual\productos.h
 
-1781039938 source:c:\users\54296\desktop\cafe_virtual\archivoproductos.cpp
+1781134325 source:c:\users\54296\desktop\cafe_virtual\archivoproductos.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
@@ -52,12 +54,11 @@
 	"Clientes.h"
 	"ArchivoClientes.h"
 
-1780976323 source:c:\users\54296\desktop\cafe_virtual\ventas.cpp
+1781049809 source:c:\users\54296\desktop\cafe_virtual\ventas.cpp
 	<iostream>
 	<cstring>
 	<cctype>
 	"Ventas.h"
-	"Clientes.h"
 
 1780617139 source:c:\users\54296\desktop\cafe_virtual\fecha.cpp
 	<iostream>
@@ -65,7 +66,7 @@
 
 1780616753 c:\users\54296\desktop\cafe_virtual\fecha.h
 
-1780708525 c:\users\54296\desktop\cafe_virtual\ventas.h
+1781048868 c:\users\54296\desktop\cafe_virtual\ventas.h
 
 1780975772 source:c:\users\54296\desktop\cafe_virtual\archivoventas.cpp
 	<cstring>
@@ -75,4 +76,21 @@
 
 1780975533 c:\users\54296\desktop\cafe_virtual\archivoventas.h
 	"Ventas.h"
+
+1781063774 source:c:\users\54296\desktop\cafe_virtual\detalleventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"DetalleVentas.h"
+
+1781060574 c:\users\54296\desktop\cafe_virtual\detalleventas.h
+
+1781063735 source:c:\users\54296\desktop\cafe_virtual\archivodetalleventas.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoDetalleVentas.h"
+
+1781055443 c:\users\54296\desktop\cafe_virtual\archivodetalleventas.h
+	"DetalleVentas.h"
 

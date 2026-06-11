@@ -17,4 +17,6 @@ void mostrarClientes();
 void modificarCliente();
 
 void mostrarVentas();
+
+void mostrarDetalleVentas();
 #endif // FUNCIONES_H_INCLUDED

@@ -232,7 +232,7 @@ void Productos::aumentarStock(int compra){
 
 void Productos::descontarStock(int venta){
 
-    if(stockProducto < venta){
+    if(stockProducto > venta){
 
         stockProducto -= venta;
     }

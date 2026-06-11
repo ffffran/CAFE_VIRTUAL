@@ -7,6 +7,8 @@
 #include "ArchivoClientes.h"
 #include "Ventas.h"
 #include "ArchivoVentas.h"
+#include "DetalleVentas.h"
+#include "ArchivoDetalleVentas.h"
 
 using namespace std;
 
@@ -59,6 +61,13 @@ void menuPrincipal(){
 
 void menuNuevaCompra(){
 
+    ///===================================///
+    /// CONFIGURACION INICIAL DE LA VENTA ///
+    ///===================================///
+
+    DetalleVentas detalleventa;     /// ESTO CONCEPTUALMENTE DEBERIA ESTAR EN EL WHILE CON CADA VUELTA.
+    ArchivoDetalleVentas dvarchivo; /// POR AHORA LO VAMOS A DEJAR ACÁ PORQUE ESTÁ TODO ACOMODADO ASÍ. PERO SE PODRÍA MEJORAR CAMBIANDO ESO.
+
     Ventas venta;
     ArchivoVentas varchivo;
 
@@ -70,13 +79,22 @@ void menuNuevaCompra(){
 
     venta.set_idVenta(varchivo.contarRegistros() + 1);
 
+    detalleventa.set_idVentaDetalle(venta.get_idVenta());
+
+    ///=============================///
+    /// DATOS GENERALES DE LA VENTA ///
+    ///=============================///
+
     int cantidadClientes = carchivo.Listar();
     int IdClienteIngresadoVenta;
     int IdProductoIngresadoVenta;
     int UnidadesProductoElegidoVenta;
     int MetodoPagoElegidoVenta;
-    int StockDespuesVenta;
     float TotalFinalVenta = 0;
+
+    ///============================///
+    /// ASOCIAR CLIENTE A LA VENTA ///
+    ///============================///
 
     cout<<"0 Para Venta General | ID Cliente Para Asociar Su Compra"<<endl;
     cout<<"ID: ";
@@ -102,51 +120,215 @@ void menuNuevaCompra(){
         }
     }
 
-    cout<<"MENU PRODUCTOS EN VENTA"<<endl;
-    cout<<"=========================="<<endl;
+    ///==========================================///
+    /// GUARDADOS TEMPORALES                     ///
+    /// SI LA VENTA SE CANCELA NO SE GUARDA NADA ///
+    /// CON ESTO EVITAMOS REGISTROS SUELTOS      ///
+    ///==========================================///
 
-    parchivo.ListarMas();
-    cout<<endl<<endl;
+    bool finalizar = true;
 
-    cout<<"Elija los productos que desea llevar (Cod. Art. / ID): ";
-    cin>>IdProductoIngresadoVenta;
+    DetalleVentas detalles[100];  ///guarda temporalemnte los detalles, si la venta se llega a cancelar en algun punto, no impacta stock ni se genera venta ni detalle venta
+    int cantidadDetalles = 0;
 
-    int posicion = IdProductoIngresadoVenta - 1;
-    producto = parchivo.Leer(posicion);
+    int posicionesProductos[100]; /// esto es para el stock de los productos, misma idea que lo de arriba
+    int cantidadesProductos[100]; /// esto a raiz de que se modifica/descuenta el stock antes de confirmar la venta
+    int cantidadProductos = 0;
 
-    cout<<endl<<endl;
-    cout<<"Cuantas unidades de "<<producto.get_nombreProducto()<<" desea llevar?"<<endl;
-    cin>>UnidadesProductoElegidoVenta;
+    ///========================///
+    /// SELECCION DE PRODUCTOS ///
+    ///========================///
 
-    if(UnidadesProductoElegidoVenta > producto.get_stockProducto()){   ///ACA HARBIA QUE HACER QUE VUELVA CAPO  ///SINO CONTINUA IGUAL JAJA
+    while(finalizar){
 
-        cout<<"Ingrese una cantidad menor, no hay suficiente stock.";
+    ///=========================================///
+    /// MOSTRAR PRODUCTOS DISPONIBLES (ACTIVOS) ///
+    ///=========================================///
+
+        system("cls");
+
+        cout<<"MENU PRODUCTOS EN VENTA"<<endl;
+        cout<<"=========================="<<endl;
+
+        parchivo.ListarMas();
+        cout<<endl<<endl;
+
+        cout<<"0 - Para cancelar la venta."<<endl;
+        cout<<"============================="<<endl;
+        cout<<"Elija los productos que desea llevar (Cod. Art. / ID): ";
+        cin>>IdProductoIngresadoVenta;
+
+        ///============================///
+        /// VALIDAR PRODUCTO INGRESADO ///
+        ///============================///
+
+
+        if(IdProductoIngresadoVenta == 0){
+
+            cout<<"!!!VENTA CANCELADA!!!";
+            return;
+        }
+
+        int posicion = parchivo.Buscar(IdProductoIngresadoVenta);
+
+        if(posicion == -1){
+
+            cout<<"El producto deseado no existe.";
+            system("pause");
+            continue;
+        }
+
+        producto = parchivo.Leer(posicion);
+
+        ///=============================///
+        /// VALIDAR ESTADO DEL PRODUCTO ///
+        ///=============================///
+
+        if(!producto.get_estadoProducto()){
+
+            cout<<"El producto seleccionado esta inactivo."<<endl;
+            system("pause");
+            continue;
+        }
+
+        detalleventa.set_idProductoDetalle(producto.get_idProducto());
+        detalleventa.set_precioUnitarioDetalle(producto.get_precioProducto());
+
+        bool cantidadValida = false;
+
+        ///==================================///
+        /// INGRESO Y VALIDACION DE CANTIDAD ///
+        ///==================================///
+
+        while(!cantidadValida){
+
+            cout<<endl<<endl;
+            cout<<"0 - Para cancelar la venta."<<endl;
+            cout<<"============================="<<endl;
+            cout<<"Cuantas unidades de "<<producto.get_nombreProducto()<<" desea llevar?"<<endl;
+            cin>>UnidadesProductoElegidoVenta;
+
+            if(UnidadesProductoElegidoVenta > producto.get_stockProducto()){
+
+                cout<<"Ingrese una cantidad menor, no hay suficiente stock.";
+                system("pause");
+            }
+            else{
+
+                cantidadValida = true;
+            }
+        }
+
+        if(UnidadesProductoElegidoVenta == 0){
+
+            cout<<"!!!VENTA CANCELADA!!!";
+            return;
+        }
+        else{
+
+            ///===================================///
+            /// ALMACENAR STOCK TEMPORALMENTE///
+            ///===================================///
+
+            posicionesProductos[cantidadProductos] = posicion;
+            cantidadesProductos[cantidadProductos] = UnidadesProductoElegidoVenta;
+
+            cantidadProductos++;
+        }
+
+        ///==================================///
+        /// GENERAR DETALLE Y ACUMULAR TOTAL ///
+        ///==================================///
+
+        detalleventa.set_cantidadUnidadesDetalle(UnidadesProductoElegidoVenta);
+        detalleventa.set_subTotalDetalle(detalleventa.get_precioUnitarioDetalle(), detalleventa.get_cantidadUnidadesDetalle());
+
+        TotalFinalVenta += producto.get_precioProducto()*UnidadesProductoElegidoVenta;
+
+        system("pause");
+        system("cls");
+
+        cout<<"Desea agregar otro producto a su pedido?"<<endl;
+        cout<<"1 - SI | 0 - NO"<<endl;
+        cin>>finalizar;
+
+        ///============================///
+        /// ALMACENAR DETALLE TEMPORAL ///
+        ///============================///
+
+        detalles[cantidadDetalles] = detalleventa;
+        cantidadDetalles++;
     }
 
-    TotalFinalVenta = producto.get_precioProducto()*UnidadesProductoElegidoVenta;
+    ///=====================///
+    /// RESUMEN DE LA VENTA ///
+    ///=====================///
 
     cout<<endl;
     cout<<"Su total es de "<< TotalFinalVenta<<endl;;
     system("pause");
     system("cls");
 
-    cout<<"1: EFECTIVO | 2: DEBITO | 3: CREDITO"<<endl;
-    cout<<"Seleccione su metodo de pago: ";
-    cin>>MetodoPagoElegidoVenta;
+    ///===========================================///
+    /// SELECCION Y VALIDACION DEL METODO DE PAGO ///
+    ///===========================================///
 
-    producto.set_stockProducto(producto.get_stockProducto() - UnidadesProductoElegidoVenta);
 
-    parchivo.Modificar(producto, posicion);
+    bool mp = false;
 
-    //cout<<"Stock de "<<producto.get_nombreProducto()<<" luego de la compra: "<<producto.get_stockProducto();
+    while(!mp){
+
+        cout<<"1: EFECTIVO | 2: DEBITO | 3: CREDITO"<<endl;
+        cout<<"Seleccione su metodo de pago: ";
+        cin>>MetodoPagoElegidoVenta;
+
+        if(MetodoPagoElegidoVenta!= 1 && MetodoPagoElegidoVenta!= 2 && MetodoPagoElegidoVenta!= 3){
+
+            cout<<"Ingrese un metodo de pago válido.";
+            system("pause");
+            system("cls");
+        }
+        else{
+
+            mp = true;
+        }
+    }
+
+    ///===========================///
+    /// CONFIRMAR Y GUARDAR VENTA ///
+    ///===========================///
 
     venta.set_metodoPagoVenta(MetodoPagoElegidoVenta);
     venta.set_totalVenta(TotalFinalVenta);
 
     varchivo.guardar(venta);
 
+    ///==============================///
+    /// GUARDAR DETALLES DE LA VENTA ///
+    ///==============================///
+
+    for(int i = 0; i < cantidadDetalles; i++){
+
+        dvarchivo.guardar(detalles[i]);
+    }
+
+    ///===================================///
+    /// ACTUALIZAR STOCK DE LOS PRODUCTOS ///
+    ///===================================///
+
+    for(int i = 0; i < cantidadProductos; i++){
+
+        producto = parchivo.Leer(posicionesProductos[i]);
+        producto.descontarStock(cantidadesProductos[i]);
+        parchivo.Modificar(producto, posicionesProductos[i]);
+    }
+
     system("pause");
     system("cls");
+
+    ///=====================///
+    /// FINALIZAR OPERACION ///
+    ///=====================///
 
     cout<<"Su Venta fue procesada con Exito.";
     system("pause");
@@ -156,7 +338,6 @@ void menuAbm(){
 
     int Opcion;
     int OpcionAlta;
-    int OpcionBaja;
     int OpcionModificar;
     int OpcionListado;
 
@@ -265,6 +446,8 @@ void menuAbm(){
             cout<<endl;
             cout<<"3 - Listar Ventas";
             cout<<endl;
+            cout<<"4 - Listar Detalle de Ventas";
+            cout<<endl;
             cout<<"0 - Salir"<<endl;
             cout<<"========================"<<endl;
             cout<< "INGRESE OPCION: ";
@@ -287,6 +470,11 @@ void menuAbm(){
             case 3:
 
                 mostrarVentas();
+                break;
+
+            case 4:
+
+                mostrarDetalleVentas();
                 break;
 
             case 0:
@@ -759,6 +947,15 @@ void modificarCliente(){
 void mostrarVentas(){
 
     ArchivoVentas archivo;
+
+    archivo.Listar();
+
+    system("pause");
+}
+
+void mostrarDetalleVentas(){
+
+    ArchivoDetalleVentas archivo;
 
     archivo.Listar();
 

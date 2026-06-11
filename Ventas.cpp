@@ -2,7 +2,6 @@
 #include <cstring>
 #include <cctype>
 #include "Ventas.h"
-#include "Clientes.h"
 using namespace std;
 
 void Ventas::mostrar(){

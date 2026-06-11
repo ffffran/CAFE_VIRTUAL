@@ -88,6 +88,12 @@ int ArchivoProductos::Buscar(int id){
 
     PArchivo = fopen (nombreArchivo, "rb");
 
+    if(PArchivo == nullptr){
+
+        cout<<"No se pudo abrir el archivo.";
+        return -1;
+    }
+
     int posicion = 0;
 
     while(fread(&producto, sizeof(Productos), 1, PArchivo) == 1){

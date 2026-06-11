@@ -11,7 +11,6 @@ class Ventas{
         float totalVenta;
 
     public:
-        void cargar();
         void mostrar();
 
         void set_idVenta(int);
