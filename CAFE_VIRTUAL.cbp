@@ -34,14 +34,24 @@
 		</Compiler>
 		<Unit filename="ArchivoClientes.cpp" />
 		<Unit filename="ArchivoClientes.h" />
+		<Unit filename="ArchivoCompras.cpp" />
+		<Unit filename="ArchivoCompras.h" />
+		<Unit filename="ArchivoDetalleCompras.cpp" />
+		<Unit filename="ArchivoDetalleCompras.h" />
 		<Unit filename="ArchivoDetalleVentas.cpp" />
 		<Unit filename="ArchivoDetalleVentas.h" />
 		<Unit filename="ArchivoProductos.cpp" />
 		<Unit filename="ArchivoProductos.h" />
+		<Unit filename="ArchivoProveedores.cpp" />
+		<Unit filename="ArchivoProveedores.h" />
 		<Unit filename="ArchivoVentas.cpp" />
 		<Unit filename="ArchivoVentas.h" />
 		<Unit filename="Clientes.cpp" />
 		<Unit filename="Clientes.h" />
+		<Unit filename="Compras.cpp" />
+		<Unit filename="Compras.h" />
+		<Unit filename="DetalleCompras.cpp" />
+		<Unit filename="DetalleCompras.h" />
 		<Unit filename="DetalleVentas.cpp" />
 		<Unit filename="DetalleVentas.h" />
 		<Unit filename="FUNCIONES.cpp" />
@@ -50,6 +60,8 @@
 		<Unit filename="Fecha.h" />
 		<Unit filename="Productos.cpp" />
 		<Unit filename="Productos.h" />
+		<Unit filename="Proveedores.cpp" />
+		<Unit filename="Proveedores.h" />
 		<Unit filename="Ventas.cpp" />
 		<Unit filename="Ventas.h" />
 		<Unit filename="main.cpp" />

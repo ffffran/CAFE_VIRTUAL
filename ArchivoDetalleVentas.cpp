@@ -118,3 +118,7 @@ void ArchivoDetalleVentas::Listar(){
         cout<<endl;
     }
 }
+
+
+
+

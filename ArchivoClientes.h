@@ -19,4 +19,6 @@ class ArchivoClientes{
         int Listar();
 };
 
+
+
 #endif // ARCHIVOCLIENTES_H_INCLUDED

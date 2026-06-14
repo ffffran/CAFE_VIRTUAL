@@ -22,5 +22,3 @@ class ArchivoProductos{
 };
 
 #endif // ARCHIVOPRODUCTOS_H_INCLUDED
-
-

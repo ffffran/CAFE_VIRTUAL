@@ -201,3 +201,4 @@ int ArchivoProductos::AuxContar(){
 
     return cantidad;
 }
+

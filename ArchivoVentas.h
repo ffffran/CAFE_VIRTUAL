@@ -20,3 +20,5 @@ class ArchivoVentas{
 
 
 #endif // ARCHIVOVENTAS_H_INCLUDED
+
+

@@ -8,7 +8,6 @@ using namespace std;
 
 void Clientes::cargar(){
 
-    int id;
     char nombre[40];
     bool miembro;
     int dni;
@@ -17,9 +16,7 @@ void Clientes::cargar(){
 
     ArchivoClientes archivo;
 
-    int cantidad = archivo.Listar();
-
-    set_idCliente(cantidad);
+    set_idCliente(archivo.Listar());
 
     cout<<"Alta de Clientes - Nombre"<<endl;
     cout<<"========================"<<endl;
@@ -181,6 +178,5 @@ char* Clientes::get_mailCliente(){
 
     return mailCliente;
 }
-
 
 

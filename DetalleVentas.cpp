@@ -67,4 +67,3 @@ float DetalleVentas::get_subTotalDetalle(){
 
 
 
-

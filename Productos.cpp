@@ -8,13 +8,11 @@ using namespace std;
 
 void Productos::cargar(){
 
-    int id;
     char nombre [50];
     float precio;
     char categoria;  ///(c = cafetería, p = pastelería o b = bebidas)
     char tamanio;    ///(p = pequeño, m = mediano o g = grande)
     int stock;
-    bool estado;
     int stockMin;
 
     ArchivoProductos archivo;
@@ -115,7 +113,7 @@ void Productos::set_nombreProducto(char nombreIngresado[]){
         strcpy(nombreProducto, nombreIngresado);
     }
 
-    for(int i = 0; i < nombreProducto[i] != '\0'; i ++){
+    for(int i = 0; nombreProducto[i] != '\0'; i ++){
 
         nombreProducto[i] = toupper(nombreProducto[i]);
     }
@@ -259,6 +257,8 @@ void Productos::darBaja(){
 
     estadoProducto = false;
 }
+
+
 
 
 
