@@ -851,7 +851,6 @@ void menuReportes(){
         int idProducto;
         int posicion;
 
-
         switch(Opcion){
 
         case 1:
