@@ -1,6 +1,7 @@
 #include <cstring>
 #include <cstdio>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 #include "ArchivoClientes.h"
 
@@ -17,7 +18,7 @@ bool ArchivoClientes::guardar(Clientes cliente){
 
     if(CArchivo == nullptr){
 
-        ///cout<<"No se pudo guardar el registro";
+        cout<<"No se pudo guardar el registro";
         return false;
     }
 
@@ -80,6 +81,29 @@ int  ArchivoClientes::contarRegistros(bool estado){
     return contador;
 }
 
+int ArchivoClientes::Contar(){
+
+    FILE *CArchivo;
+
+    CArchivo = fopen(nombreArchivo, "rb");
+
+    int cantidad;
+
+    if(CArchivo == nullptr){
+
+        cout<<"El archivo es nuevo";
+        return 0;
+    }
+
+    fseek(CArchivo, 0, SEEK_END);
+
+    cantidad = ftell(CArchivo) / sizeof(Clientes);
+
+    fclose(CArchivo);
+
+    return cantidad;
+}
+
 int ArchivoClientes::Buscar(int id){
 
     Clientes cliente;
@@ -132,25 +156,33 @@ bool ArchivoClientes::Modificar(Clientes cliente, int posicion){
 
 int ArchivoClientes::Listar(){
 
-    FILE *CArchivo;
+    Clientes cliente;
+    ArchivoClientes carchivo;
 
-    CArchivo = fopen(nombreArchivo, "rb");
+    cout<<left;
+    cout<<setw(6)<<"ID";
+    cout<<setw(35)<<"NOMBRE";
+    cout<<setw(12)<<"DNI";
+    cout<<setw(20)<<"TELEFONO";
+    cout<<setw(40)<<"MAIL";
+    cout<<setw(8)<<"MIEMBRO";
+    cout<<endl;
 
-    int cantidad;
+    cout<<string(125, '.')<<endl;
 
-    if(CArchivo == nullptr){
+    for(int i = 0; i < carchivo.Contar(); i++){
 
-        cout<<"No se pudo abrir el archivo";
-        return 0;
+        cliente = carchivo.Leer(i);
+
+        if(cliente.get_estadoCliente()){
+
+            cliente.mostrar();
+        }
     }
 
-    fseek(CArchivo, 0, SEEK_END);
+    system("pause");
 
-    cantidad = ftell(CArchivo) / sizeof(Clientes);
-
-    fclose(CArchivo);
-
-    return cantidad;
+    return 0;
 }
 
 

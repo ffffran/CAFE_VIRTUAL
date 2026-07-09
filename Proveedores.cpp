@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cstring>
 #include <cctype>
+#include <iomanip>
 #include "Proveedores.h"
 #include "ArchivoProveedores.h"
 using namespace std;
 
 void Proveedores::cargar(){
-
+    cin.ignore();
     char rubroEmpresa[55];
     char nombreEmpresa[60];
     char paisEmpresa[40];
@@ -20,7 +21,7 @@ void Proveedores::cargar(){
     cout<<"Alta de Proveedores - Nombre"<<endl;
     cout<<"========================"<<endl;
     cout<<"Ingrese el nombre del Proveedor: ";
-    cin>> nombreEmpresa;
+    cin.getline(nombreEmpresa,60);
 
     set_nombreEmpresa(nombreEmpresa);
 
@@ -29,7 +30,7 @@ void Proveedores::cargar(){
     cout<<"Alta de Proveedores - Rubro"<<endl;
     cout<<"========================"<<endl;
     cout<<"Ingrese el nombre del Rubro: ";
-    cin>> rubroEmpresa;
+    cin.getline(rubroEmpresa,55);
 
     set_rubroEmpresa(rubroEmpresa);
 
@@ -38,7 +39,7 @@ void Proveedores::cargar(){
     cout<<"Alta de Proveedores - Pais"<<endl;
     cout<<"========================"<<endl;
     cout<<"Ingrese el Pais del Proveedor: ";
-    cin>> paisEmpresa;
+    cin.getline(paisEmpresa,40);
 
     set_paisEmpresa(paisEmpresa);
 
@@ -47,7 +48,7 @@ void Proveedores::cargar(){
     cout<<"Alta de Proveedores - Localidad"<<endl;
     cout<<"========================"<<endl;
     cout<<"Ingrese la Localidad del Proveedor: ";
-    cin>> locacionEmpresa;
+    cin.getline(locacionEmpresa,40);
 
     set_locacionEmpresa(locacionEmpresa);
 
@@ -56,7 +57,7 @@ void Proveedores::cargar(){
     cout<<"Alta de Proveedores - Telefono"<<endl;
     cout<<"========================"<<endl;
     cout<<"Ingrese el telefono del Proveedor: ";
-    cin>> telefonoEmpresa;
+    cin.getline(telefonoEmpresa,20);
 
     set_telefonoEmpresa(telefonoEmpresa);
 
@@ -65,12 +66,15 @@ void Proveedores::cargar(){
 
 void Proveedores::mostrar(){
 
-    cout<<"ID: "<<idProveedor<<endl;
-    cout<<"NOMBRE: "<<nombreEmpresa<<endl;
-    cout<<"RUBRO: "<<rubroEmpresa<<endl;
-    cout<<"PAIS: "<<paisEmpresa<<endl;
-    cout<<"LOCALIDAD: "<<locacionEmpresa<<endl;
-    cout<<"TELEFONO: "<<telefonoEmpresa<<endl;
+    cout<<left;
+    cout<<setw(6)<<idProveedor;
+    cout<<setw(55)<<nombreEmpresa;
+    cout<<setw(60)<<rubroEmpresa;
+    cout<<setw(40)<<paisEmpresa;
+    cout<<setw(40)<<locacionEmpresa;
+    cout<<setw(20)<<telefonoEmpresa;
+
+    cout<<endl;
 }
 
 void Proveedores::set_idProveedor(int id){
@@ -142,6 +146,11 @@ void Proveedores::set_locacionEmpresa(char locacionIngresada[]){
     }
 }
 
+void Proveedores::set_estadoProveedor(bool estadoIngresado){
+
+    estadoProveedor = estadoIngresado;
+}
+
 int Proveedores::get_idProveedor(){
 
     return idProveedor;
@@ -172,4 +181,17 @@ char* Proveedores::get_locacionEmpresa(){
     return locacionEmpresa;
 }
 
+bool Proveedores::get_estadoProveedor(){
 
+    return estadoProveedor;
+}
+
+void Proveedores::darAlta(){
+
+    estadoProveedor = true;
+}
+
+void Proveedores::darBaja(){
+
+    estadoProveedor = false;
+}

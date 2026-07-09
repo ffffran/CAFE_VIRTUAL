@@ -17,6 +17,7 @@ class ArchivoProveedores{
         int Buscar(int id);
         void Listar();
         bool Modificar(Proveedores proveedor, int posicion);
+        int Contar();
 
 };
 

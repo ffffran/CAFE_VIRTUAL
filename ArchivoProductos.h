@@ -16,9 +16,8 @@ class ArchivoProductos{
         int contarRegistros(bool estado);
         int Buscar(int id);
         bool Modificar(Productos producto, int posicion);
-        int Listar();
-        void ListarMas();
-        int AuxContar();
+        int Contar();
+        void Listar();
 };
 
 #endif // ARCHIVOPRODUCTOS_H_INCLUDED

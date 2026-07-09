@@ -10,6 +10,7 @@ private:
     char paisEmpresa[40];
     char telefonoEmpresa[20];
     char locacionEmpresa[40];
+    bool estadoProveedor;
 
 public:
     void cargar();
@@ -21,6 +22,7 @@ public:
     void set_paisEmpresa(char[]);
     void set_telefonoEmpresa(char[]);
     void set_locacionEmpresa(char[]);
+    void set_estadoProveedor(bool);
 
     int get_idProveedor();
     char* get_rubroEmpresa();
@@ -28,6 +30,10 @@ public:
     char* get_paisEmpresa();
     char* get_telefonoEmpresa();
     char* get_locacionEmpresa();
+    bool get_estadoProveedor();
+
+    void darAlta();
+    void darBaja();
 };
 
 #endif // PROVEEDORES_H_INCLUDED

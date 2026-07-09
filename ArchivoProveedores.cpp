@@ -1,6 +1,7 @@
 #include <cstring>
 #include <cstdio>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 #include "ArchivoProveedores.h"
 
@@ -107,16 +108,28 @@ void ArchivoProveedores::Listar(){
     Proveedores proveedor;
     ArchivoProveedores archivo;
 
-    cout<<"DETALLE VENTAS"<<endl<<"======================="<<endl;
+    cout<<left;
+    cout<<setw(6)<<"ID";
+    cout<<setw(55)<<"NOMBRE";
+    cout<<setw(60)<<"RUBRO";
+    cout<<setw(40)<<"PAIS";
+    cout<<setw(40)<<"LOCACION";
+    cout<<setw(20)<<"TELEFONO";
+    cout<<endl;
 
-    int cantidad = archivo.contarRegistros();
+    cout<<string(125, '.')<<endl;
 
-    for(int i = 0; i < cantidad; i++){
+    for(int i = 0; i < archivo.Contar(); i++){
 
         proveedor = archivo.Leer(i);
-        proveedor.mostrar();
-        cout<<endl;
+
+        if(proveedor.get_estadoProveedor()){
+
+            proveedor.mostrar();
+        }
     }
+
+    system("pause");
 }
 
 bool ArchivoProveedores::Modificar(Proveedores proveedor, int posicion){
@@ -140,4 +153,26 @@ bool ArchivoProveedores::Modificar(Proveedores proveedor, int posicion){
     fclose(PArchivo);
 
     return escribio;
+}
+
+int ArchivoProveedores::Contar(){
+
+    FILE *PRArchivo;
+
+    PRArchivo = fopen(nombreArchivo, "rb");
+
+    int cantidad;
+
+    if(PRArchivo == nullptr){
+
+        cout<<"El archivo es nuevo";
+        return 0;
+    }
+
+    fseek(PRArchivo, 0, SEEK_END);
+
+    cantidad = ftell(PRArchivo) / sizeof(Proveedores);
+
+    fclose(PRArchivo);
+    return cantidad;
 }

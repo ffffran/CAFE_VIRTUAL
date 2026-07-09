@@ -3,9 +3,9 @@
 	<iostream>
 	"FUNCIONES.h"
 
-1781474318 c:\users\54296\desktop\cafe_virtual\funciones.h
+1781480099 c:\users\54296\desktop\cafe_virtual\funciones.h
 
-1781476424 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
+1781481873 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
 	<iostream>
 	<cstring>
 	"FUNCIONES.h"
@@ -151,4 +151,629 @@
 
 1781323109 c:\users\54296\desktop\cafe_virtual\archivoproveedores.h
 	"Proveedores.h"
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivoclientes.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoClientes.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivoclientes.h
+	"Clientes.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\clientes.h
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivocompras.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoCompras.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivocompras.h
+	"Compras.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\compras.h
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivodetallecompras.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoDetalleCompras.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivodetallecompras.h
+	"DetalleCompras.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\detallecompras.h
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivodetalleventas.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoDetalleVentas.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivodetalleventas.h
+	"DetalleVentas.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\detalleventas.h
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivoproductos.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoProductos.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivoproductos.h
+	"Productos.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\productos.h
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivoproveedores.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoProveedores.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivoproveedores.h
+	"Proveedores.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\proveedores.h
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivoventas.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoVentas.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivoventas.h
+	"Ventas.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\ventas.h
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\clientes.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Clientes.h"
+	"ArchivoClientes.h"
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\compras.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Compras.h"
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\detallecompras.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"DetalleCompras.h"
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\detalleventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"DetalleVentas.h"
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\fecha.cpp
+	<iostream>
+	"Fecha.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\fecha.h
+
+1782211781 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\funciones.cpp
+	<iostream>
+	<cstring>
+	"FUNCIONES.h"
+	"Productos.h"
+	"ArchivoProductos.h"
+	"Clientes.h"
+	"ArchivoClientes.h"
+	"Proveedores.h"
+	"ArchivoProveedores.h"
+	"Ventas.h"
+	"ArchivoVentas.h"
+	"DetalleVentas.h"
+	"ArchivoDetalleVentas.h"
+	"Compras.h"
+	"ArchivoCompras.h"
+	"DetalleCompras.h"
+	"ArchivoDetalleCompras.h"
+
+1782207708 c:\users\admin\desktop\cafe_virtual\cafe_virtual\funciones.h
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\main.cpp
+	<iostream>
+	"FUNCIONES.h"
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\productos.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Productos.h"
+	"ArchivoProductos.h"
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\proveedores.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Proveedores.h"
+	"ArchivoProveedores.h"
+
+1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\ventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Ventas.h"
+
+1782207710 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoclientes.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoClientes.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoclientes.h
+	"Clientes.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\clientes.h
+
+1782207710 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivocompras.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoCompras.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivocompras.h
+	"Compras.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\compras.h
+
+1782207710 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivodetallecompras.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoDetalleCompras.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivodetallecompras.h
+	"DetalleCompras.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\detallecompras.h
+
+1782207710 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivodetalleventas.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoDetalleVentas.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivodetalleventas.h
+	"DetalleVentas.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\detalleventas.h
+
+1782264922 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoproductos.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoProductos.h"
+
+1782264890 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoproductos.h
+	"Productos.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\productos.h
+
+1782207710 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoproveedores.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoProveedores.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoproveedores.h
+	"Proveedores.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\proveedores.h
+
+1782207710 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoventas.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoVentas.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoventas.h
+	"Ventas.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\ventas.h
+
+1782267512 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\clientes.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Clientes.h"
+	"ArchivoClientes.h"
+
+1782207710 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\compras.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Compras.h"
+
+1782207710 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\detallecompras.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"DetalleCompras.h"
+
+1782207710 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\detalleventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"DetalleVentas.h"
+
+1782270061 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\fecha.cpp
+	<iostream>
+	"Fecha.h"
+
+1782207710 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\fecha.h
+
+1782272344 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\funciones.cpp
+	<iostream>
+	<cstring>
+	"FUNCIONES.h"
+	"Productos.h"
+	"ArchivoProductos.h"
+	"Clientes.h"
+	"ArchivoClientes.h"
+	"Proveedores.h"
+	"ArchivoProveedores.h"
+	"Ventas.h"
+	"ArchivoVentas.h"
+	"DetalleVentas.h"
+	"ArchivoDetalleVentas.h"
+	"Compras.h"
+	"ArchivoCompras.h"
+	"DetalleCompras.h"
+	"ArchivoDetalleCompras.h"
+
+1782272362 c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\funciones.h
+
+1782270779 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\main.cpp
+	<iostream>
+	"FUNCIONES.h"
+	"Fecha.h"
+
+1782267512 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\productos.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Productos.h"
+	"ArchivoProductos.h"
+
+1782267512 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\proveedores.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Proveedores.h"
+	"ArchivoProveedores.h"
+
+1782207710 source:c:\users\admin\desktop\cafe_virtual_2\cafe_virtual\cafe_virtual\ventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Ventas.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoclientes.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoClientes.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoclientes.h
+	"Clientes.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\clientes.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivocompras.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoCompras.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivocompras.h
+	"Compras.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\compras.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivodetallecompras.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoDetalleCompras.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivodetallecompras.h
+	"DetalleCompras.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\detallecompras.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivodetalleventas.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoDetalleVentas.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivodetalleventas.h
+	"DetalleVentas.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\detalleventas.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoproductos.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoProductos.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoproductos.h
+	"Productos.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\productos.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoproveedores.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoProveedores.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoproveedores.h
+	"Proveedores.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\proveedores.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoventas.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoVentas.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\archivoventas.h
+	"Ventas.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\ventas.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\clientes.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Clientes.h"
+	"ArchivoClientes.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\compras.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Compras.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\detallecompras.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"DetalleCompras.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\detalleventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"DetalleVentas.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\fecha.cpp
+	<iostream>
+	"Fecha.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\fecha.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\funciones.cpp
+	<iostream>
+	<cstring>
+	"FUNCIONES.h"
+	"Productos.h"
+	"ArchivoProductos.h"
+	"Clientes.h"
+	"ArchivoClientes.h"
+	"Proveedores.h"
+	"ArchivoProveedores.h"
+	"Ventas.h"
+	"ArchivoVentas.h"
+	"DetalleVentas.h"
+	"ArchivoDetalleVentas.h"
+	"Compras.h"
+	"ArchivoCompras.h"
+	"DetalleCompras.h"
+	"ArchivoDetalleCompras.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\funciones.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\main.cpp
+	<iostream>
+	"FUNCIONES.h"
+	"Fecha.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\productos.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Productos.h"
+	"ArchivoProductos.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\proveedores.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Proveedores.h"
+	"ArchivoProveedores.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual_2 (2)\cafe_virtual_2\cafe_virtual\cafe_virtual\ventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Ventas.h"
+
+1783533715 source:c:\users\54296\downloads\cafe_virtual\archivoclientes.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	<iomanip>
+	"ArchivoClientes.h"
+
+1783529805 c:\users\54296\downloads\cafe_virtual\archivoclientes.h
+	"Clientes.h"
+
+1783355399 c:\users\54296\downloads\cafe_virtual\clientes.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual\archivocompras.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoCompras.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual\archivocompras.h
+	"Compras.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual\compras.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual\archivodetallecompras.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoDetalleCompras.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual\archivodetallecompras.h
+	"DetalleCompras.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual\detallecompras.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual\archivodetalleventas.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoDetalleVentas.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual\archivodetalleventas.h
+	"DetalleVentas.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual\detalleventas.h
+
+1783529691 source:c:\users\54296\downloads\cafe_virtual\archivoproductos.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	<iomanip>
+	"ArchivoProductos.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual\archivoproductos.h
+	"Productos.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual\productos.h
+
+1783535396 source:c:\users\54296\downloads\cafe_virtual\archivoproveedores.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	<iomanip>
+	"ArchivoProveedores.h"
+
+1783534868 c:\users\54296\downloads\cafe_virtual\archivoproveedores.h
+	"Proveedores.h"
+
+1783534378 c:\users\54296\downloads\cafe_virtual\proveedores.h
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual\archivoventas.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	"ArchivoVentas.h"
+
+1782949664 c:\users\54296\downloads\cafe_virtual\archivoventas.h
+	"Ventas.h"
+
+1783107476 c:\users\54296\downloads\cafe_virtual\ventas.h
+	"Fecha.h"
+
+1783533605 source:c:\users\54296\downloads\cafe_virtual\clientes.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	<iomanip>
+	"Clientes.h"
+	"ArchivoClientes.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual\compras.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Compras.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual\detallecompras.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"DetalleCompras.h"
+
+1782949664 source:c:\users\54296\downloads\cafe_virtual\detalleventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"DetalleVentas.h"
+
+1783107045 source:c:\users\54296\downloads\cafe_virtual\fecha.cpp
+	<iostream>
+	"Fecha.h"
+	<ctime>
+
+1782949664 c:\users\54296\downloads\cafe_virtual\fecha.h
+
+1783348181 source:c:\users\54296\downloads\cafe_virtual\main.cpp
+	<iostream>
+	"FUNCIONES.h"
+	"Fecha.h"
+
+1783534424 c:\users\54296\downloads\cafe_virtual\funciones.h
+
+1783529655 source:c:\users\54296\downloads\cafe_virtual\productos.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	<iomanip>
+	"Productos.h"
+	"ArchivoProductos.h"
+
+1783535396 source:c:\users\54296\downloads\cafe_virtual\proveedores.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	<iomanip>
+	"Proveedores.h"
+	"ArchivoProveedores.h"
+
+1783126704 source:c:\users\54296\downloads\cafe_virtual\ventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Ventas.h"
+	"Fecha.h"
+
+1783534528 source:c:\users\54296\downloads\cafe_virtual\funciones.cpp
+	<iostream>
+	<cstring>
+	"FUNCIONES.h"
+	"Productos.h"
+	"ArchivoProductos.h"
+	"Clientes.h"
+	"ArchivoClientes.h"
+	"Proveedores.h"
+	"ArchivoProveedores.h"
+	"Ventas.h"
+	"ArchivoVentas.h"
+	"DetalleVentas.h"
+	"ArchivoDetalleVentas.h"
+	"Compras.h"
+	"ArchivoCompras.h"
+	"DetalleCompras.h"
+	"ArchivoDetalleCompras.h"
+	"Fecha.h"
 

@@ -14,6 +14,7 @@ class ArchivoClientes{
         bool guardar(Clientes cliente);
         Clientes Leer(int posicion);
         int contarRegistros(bool estado);
+        int Contar();
         int Buscar(int id);
         bool Modificar(Clientes cliente, int posicion);
         int Listar();

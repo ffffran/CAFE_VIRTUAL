@@ -1,13 +1,14 @@
 #include <iostream>
 #include <cstring>
 #include <cctype>
+#include <iomanip>
 #include "Clientes.h"
 #include "ArchivoClientes.h"
 
 using namespace std;
 
 void Clientes::cargar(){
-
+    cin.ignore();
     char nombre[40];
     bool miembro;
     int dni;
@@ -16,12 +17,12 @@ void Clientes::cargar(){
 
     ArchivoClientes archivo;
 
-    set_idCliente(archivo.Listar());
+    set_idCliente(archivo.Contar());
 
     cout<<"Alta de Clientes - Nombre"<<endl;
     cout<<"========================"<<endl;
     cout<<"Ingrese el nombre del Cliente: ";
-    cin>> nombre;
+    cin.getline(nombre,40);
 
     set_nombreCliente(nombre);
 
@@ -55,7 +56,7 @@ void Clientes::cargar(){
     cout<<"Alta de Clientes - Telefono"<<endl;
     cout<<"========================"<<endl;
     cout<<"Ingrese el telefono del Cliente: ";
-    cin>> telefono;
+    cin.getline(telefono,20);
 
     set_telefonoCliente(telefono);
 
@@ -74,19 +75,22 @@ void Clientes::cargar(){
 
 void Clientes::mostrar(){
 
-    cout<<"ID:"<<idCliente<<endl;
-    cout<<"NOMBRE: "<<nombreCliente<<endl;
-    cout<<"DNI: "<<dniCliente<<endl;
-    cout<<"TELEFONO: "<<telefonoCliente<<endl;
-    cout<<"MAIL: "<<mailCliente<<endl;
+    cout<<left;
+    cout<<setw(6)<<idCliente;
+    cout<<setw(35)<<nombreCliente;
+    cout<<setw(12)<<dniCliente;
+    cout<<setw(20)<<telefonoCliente;
+    cout<<setw(40)<<mailCliente;
 
-    if(miembroCliente){
-        cout<<"MIEMBRO: SI"<<endl<<endl;
-    }
-    else{
+    if(miembroCliente == true){
 
-        cout<<"MIEMBRO: NO"<<endl<<endl;
+        cout<<setw(8)<<"   SI";
     }
+    else if(miembroCliente == false){
+
+        cout<<setw(8)<<"   NO";
+    }
+    cout<<endl;
 }
 
 void Clientes::set_idCliente(int idIngresado){
@@ -149,6 +153,11 @@ void Clientes::set_mailCliente(char mailIngresado[]){
     }
 }
 
+void Clientes::set_estadoCliente(bool estadoIngresado){
+
+    estadoCliente = estadoIngresado;
+}
+
 int Clientes::get_idCliente(){
 
     return idCliente;
@@ -179,4 +188,17 @@ char* Clientes::get_mailCliente(){
     return mailCliente;
 }
 
+bool Clientes::get_estadoCliente(){
 
+    return estadoCliente;
+}
+
+void Clientes::darAlta(){
+
+    estadoCliente = true;
+}
+
+void Clientes::darBaja(){
+
+    estadoCliente = false;
+}

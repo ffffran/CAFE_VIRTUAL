@@ -10,6 +10,7 @@ class Clientes{
         int dniCliente;
         char telefonoCliente[20];
         char mailCliente[60];
+        bool estadoCliente;
 
     public:
         void cargar();
@@ -21,6 +22,7 @@ class Clientes{
         void set_dniCliente(int);
         void set_telefonoCliente(char telefono[]);
         void set_mailCliente(char mail[]);
+        void set_estadoCliente(bool);
 
         int get_idCliente();
         char* get_nombreCliente();
@@ -28,6 +30,10 @@ class Clientes{
         int get_dni();
         char* get_telefonoCliente();
         char* get_mailCliente();
+        bool get_estadoCliente();
+
+        void darAlta();
+        void darBaja();
 };
 
 

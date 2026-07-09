@@ -1,13 +1,14 @@
 #include <iostream>
 #include <cstring>
 #include <cctype>
+#include <iomanip>
 #include "Productos.h"
 #include "ArchivoProductos.h"
 
 using namespace std;
 
 void Productos::cargar(){
-
+    cin.ignore();
     char nombre [50];
     float precio;
     char categoria;  ///(c = cafetería, p = pastelería o b = bebidas)
@@ -17,12 +18,12 @@ void Productos::cargar(){
 
     ArchivoProductos archivo;
 
-    set_idProducto(archivo.AuxContar() + 1);
+    set_idProducto(archivo.Contar() + 1);
 
     cout<<"Alta de Productos - Nombre"<<endl;
     cout<<"========================"<<endl;
     cout<<"Ingrese el nombre del producto: ";
-    cin>> nombre;
+    cin.getline(nombre,50);
     set_nombreProducto(nombre);
 
     system("cls");
@@ -73,29 +74,54 @@ void Productos::cargar(){
 
 void Productos::mostrar(){
 
-    cout<<"ID: "<<idProducto<<endl;
-    cout<<"NOMBRE: "<<nombreProducto<<endl;
-    cout<<"PRECIO: "<<precioProducto<<endl;
+    cout<<left;
 
-    if(categoriaProducto == 'B'){
-        cout<<"CATEGORIA: Bebidas"<<endl;
-    }
-    else if(categoriaProducto == 'C'){
-        cout<<"CATEGORIA: Cafeteria"<<endl;
-    }
-    else if(categoriaProducto == 'P'){
-        cout<<"CATEGORIA: Pasteleria"<<endl;
+    cout<<setw(6)<<idProducto;
+
+    cout<<setw(35)<<nombreProducto;
+
+    cout<<fixed<<setprecision(2);
+    cout<<"$"<<setw(12)<<precioProducto;
+
+    switch(categoriaProducto){
+
+    case 'c':
+        cout<<setw(15)<<"Cafeteria";
+        break;
+
+    case 'p':
+        cout<<setw(15)<<"Pasteleria";
+        break;
+
+    case 'b':
+        cout<<setw(15)<<"Bebidas";
+        break;
+
+    default:
+        cout<<setw(15)<<"-";
     }
 
-    cout<<"STOCK: "<<stockProducto<<endl;
+    switch(tamanioProducto){
 
-    if(estadoProducto){
-        cout<<"ESTADO: Activo"<<endl<<endl;
-    }
-    else{
+    case 'p':
+        cout<<setw(10)<<"Pequeño";
+        break;
 
-        cout<<"ESTADO: Inactivo"<<endl<<endl;
+    case 'm':
+        cout<<setw(10)<<"Mediano";
+        break;
+
+    case 'g':
+        cout<<setw(10)<<"Grande";
+        break;
+
+    default:
+        cout << setw(10) << "-";
     }
+
+    cout<<setw(8)<<stockProducto;
+
+    cout<<endl;
 }
 
 void Productos::set_idProducto(int idPorductoIngresado){

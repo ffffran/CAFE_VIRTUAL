@@ -1,6 +1,7 @@
 #include <cstring>
 #include <cstdio>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 #include "ArchivoProductos.h"
 
@@ -136,7 +137,7 @@ bool ArchivoProductos::Modificar(Productos producto, int posicion){
 }
 
 
-int ArchivoProductos::Listar(){
+int ArchivoProductos::Contar(){
 
     FILE *PArchivo;
 
@@ -159,46 +160,32 @@ int ArchivoProductos::Listar(){
     return cantidad;
 }
 
-void ArchivoProductos::ListarMas(){
+void ArchivoProductos::Listar(){
 
     Productos producto;
     ArchivoProductos parchivo;
 
-    int cantidad = parchivo.Listar();
+    cout<<left;
+    cout<<setw(6)<<"ID";
+    cout<<setw(35)<<"NOMBRE";
+    cout<<setw(12)<<"PRECIO";
+    cout<<setw(15)<<"CATEGORIA";
+    cout<<setw(10)<<"TAMANIO";
+    cout<<setw(8)<<"STOCK";
+    cout<<endl;
 
-    for(int i = 0; i < cantidad ; i++){
+    cout<<string(84, '.')<<endl;
+
+    for(int i = 0; i < parchivo.Contar(); i++){
 
         producto = parchivo.Leer(i);
 
-        if(producto.get_estadoProducto() == true){
+        if(producto.get_estadoProducto()){
 
             producto.mostrar();
         }
     }
 
     system("pause");
-}
-
-int ArchivoProductos::AuxContar(){
-
-    FILE *PArchivo;
-
-    PArchivo = fopen(nombreArchivo, "rb");
-
-    int cantidad;
-
-    if(PArchivo == nullptr){
-
-        cout<<"Este es tu Primer Producto!!!!"<<endl<<endl;
-        return 0;
-    }
-
-    fseek(PArchivo, 0, SEEK_END);
-
-    cantidad = ftell(PArchivo) / sizeof(Productos);
-
-    fclose(PArchivo);
-
-    return cantidad;
 }
 

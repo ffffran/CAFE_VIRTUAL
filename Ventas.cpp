@@ -2,6 +2,7 @@
 #include <cstring>
 #include <cctype>
 #include "Ventas.h"
+#include "Fecha.h"
 using namespace std;
 
 void Ventas::mostrar(){
@@ -20,6 +21,8 @@ void Ventas::mostrar(){
     }
 
     cout<<"TOTAL: $"<<totalVenta<<endl;
+
+    fechaVenta.Mostrar();
 }
 
 void Ventas::set_idVenta(int idVentaEnviado){
@@ -51,6 +54,11 @@ void Ventas::set_metodoPagoVenta(int metodoPagoVentaIngresado){
     }
 }
 
+void Ventas::set_fechaVenta(Fecha fecha){
+
+    fechaVenta = fecha;
+}
+
 void Ventas::set_totalVenta(float totalVentaCalculado){
 
     if(totalVentaCalculado > 0){
@@ -72,6 +80,11 @@ int Ventas::get_idClienteVenta(){
 int Ventas::get_metodoPagoVenta(){
 
     return metodoPagoVenta;
+}
+
+Fecha Ventas::get_fechaVenta(){
+
+    return fechaVenta;
 }
 
 float Ventas::get_totalVenta(){
