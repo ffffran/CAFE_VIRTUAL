@@ -52,7 +52,7 @@ Proveedores ArchivoProveedores::Leer(int posicion){
     return proveedor;
 }
 
-int ArchivoProveedores::contarRegistros(){
+int ArchivoProveedores::contarRegistros(bool estado){
 
     int contador = 0;
 
@@ -69,7 +69,10 @@ int ArchivoProveedores::contarRegistros(){
 
     while(fread(&proveedor, sizeof(Proveedores), 1, PArchivo) == 1){
 
-        contador++;
+        if(proveedor.get_estadoProveedor() == estado){
+
+            contador++;
+        }
     }
 
     fclose(PArchivo);
@@ -110,14 +113,14 @@ void ArchivoProveedores::Listar(){
 
     cout<<left;
     cout<<setw(6)<<"ID";
-    cout<<setw(55)<<"NOMBRE";
-    cout<<setw(60)<<"RUBRO";
-    cout<<setw(40)<<"PAIS";
-    cout<<setw(40)<<"LOCACION";
+    cout<<setw(40)<<"NOMBRE";
+    cout<<setw(30)<<"RUBRO";
+    cout<<setw(30)<<"PAIS";
+    cout<<setw(30)<<"LOCACION";
     cout<<setw(20)<<"TELEFONO";
     cout<<endl;
 
-    cout<<string(125, '.')<<endl;
+    cout<<string(155, '.')<<endl;
 
     for(int i = 0; i < archivo.Contar(); i++){
 

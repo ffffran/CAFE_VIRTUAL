@@ -8,7 +8,9 @@
 using namespace std;
 
 void Clientes::cargar(){
+
     cin.ignore();
+
     char nombre[40];
     bool miembro;
     int dni;
@@ -56,6 +58,7 @@ void Clientes::cargar(){
     cout<<"Alta de Clientes - Telefono"<<endl;
     cout<<"========================"<<endl;
     cout<<"Ingrese el telefono del Cliente: ";
+    cin.ignore();
     cin.getline(telefono,20);
 
     set_telefonoCliente(telefono);

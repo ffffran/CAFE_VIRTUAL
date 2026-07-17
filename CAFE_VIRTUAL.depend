@@ -1,155 +1,167 @@
 # depslib dependency file v1.0
-1781142891 source:c:\users\54296\desktop\cafe_virtual\main.cpp
+1783348181 source:c:\users\54296\desktop\cafe_virtual\main.cpp
 	<iostream>
 	"FUNCIONES.h"
-
-1781480099 c:\users\54296\desktop\cafe_virtual\funciones.h
-
-1781481873 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
-	<iostream>
-	<cstring>
-	"FUNCIONES.h"
-	"Productos.h"
-	"ArchivoProductos.h"
-	"Clientes.h"
-	"ArchivoClientes.h"
-	"Proveedores.h"
-	"ArchivoProveedores.h"
-	"Ventas.h"
-	"ArchivoVentas.h"
-	"DetalleVentas.h"
-	"ArchivoDetalleVentas.h"
-	"Compras.h"
-	"ArchivoCompras.h"
-	"DetalleCompras.h"
-	"ArchivoDetalleCompras.h"
-
-1781210101 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
-	<iostream>
-	<cstring>
-	<cctype>
-	"Productos.h"
-	"ArchivoProductos.h"
-
-1780450504 c:\users\54296\desktop\cafe_virtual\productos.h
-
-1781209736 source:c:\users\54296\desktop\cafe_virtual\archivoproductos.cpp
-	<cstring>
-	<cstdio>
-	<iostream>
-	"ArchivoProductos.h"
-
-1781209746 c:\users\54296\desktop\cafe_virtual\archivoproductos.h
-	"Productos.h"
-
-1781209696 source:c:\users\54296\desktop\cafe_virtual\archivoclientes.cpp
-	<cstring>
-	<cstdio>
-	<iostream>
-	"ArchivoClientes.h"
-
-1781209709 c:\users\54296\desktop\cafe_virtual\archivoclientes.h
-	"Clientes.h"
-
-1780450313 c:\users\54296\desktop\cafe_virtual\clientes.h
-
-1781408962 source:c:\users\54296\desktop\cafe_virtual\clientes.cpp
-	<iostream>
-	<cstring>
-	<cctype>
-	"Clientes.h"
-	"ArchivoClientes.h"
-
-1781209684 source:c:\users\54296\desktop\cafe_virtual\ventas.cpp
-	<iostream>
-	<cstring>
-	<cctype>
-	"Ventas.h"
-
-1780617139 source:c:\users\54296\desktop\cafe_virtual\fecha.cpp
-	<iostream>
 	"Fecha.h"
 
-1780616753 c:\users\54296\desktop\cafe_virtual\fecha.h
+1783808967 c:\users\54296\desktop\cafe_virtual\funciones.h
 
-1781048868 c:\users\54296\desktop\cafe_virtual\ventas.h
+1784314814 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
+	<iostream>
+	<cstring>
+	<iomanip>
+	"FUNCIONES.h"
+	"Productos.h"
+	"ArchivoProductos.h"
+	"Clientes.h"
+	"ArchivoClientes.h"
+	"Proveedores.h"
+	"ArchivoProveedores.h"
+	"Ventas.h"
+	"ArchivoVentas.h"
+	"DetalleVentas.h"
+	"ArchivoDetalleVentas.h"
+	"Compras.h"
+	"ArchivoCompras.h"
+	"DetalleCompras.h"
+	"ArchivoDetalleCompras.h"
+	"Fecha.h"
 
-1781209672 source:c:\users\54296\desktop\cafe_virtual\archivoventas.cpp
+1783699135 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	<iomanip>
+	"Productos.h"
+	"ArchivoProductos.h"
+
+1782949664 c:\users\54296\desktop\cafe_virtual\productos.h
+
+1783699006 source:c:\users\54296\desktop\cafe_virtual\archivoproductos.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	<iomanip>
+	"ArchivoProductos.h"
+
+1782949664 c:\users\54296\desktop\cafe_virtual\archivoproductos.h
+	"Productos.h"
+
+1783533715 source:c:\users\54296\desktop\cafe_virtual\archivoclientes.cpp
+	<cstring>
+	<cstdio>
+	<iostream>
+	<iomanip>
+	"ArchivoClientes.h"
+
+1783529805 c:\users\54296\desktop\cafe_virtual\archivoclientes.h
+	"Clientes.h"
+
+1783355399 c:\users\54296\desktop\cafe_virtual\clientes.h
+
+1783636754 source:c:\users\54296\desktop\cafe_virtual\clientes.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	<iomanip>
+	"Clientes.h"
+	"ArchivoClientes.h"
+
+1783126704 source:c:\users\54296\desktop\cafe_virtual\ventas.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+	"Ventas.h"
+	"Fecha.h"
+
+1783107045 source:c:\users\54296\desktop\cafe_virtual\fecha.cpp
+	<iostream>
+	"Fecha.h"
+	<ctime>
+
+1782949664 c:\users\54296\desktop\cafe_virtual\fecha.h
+
+1783107476 c:\users\54296\desktop\cafe_virtual\ventas.h
+	"Fecha.h"
+
+1782949664 source:c:\users\54296\desktop\cafe_virtual\archivoventas.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
 	"ArchivoVentas.h"
 
-1781209678 c:\users\54296\desktop\cafe_virtual\archivoventas.h
+1782949664 c:\users\54296\desktop\cafe_virtual\archivoventas.h
 	"Ventas.h"
 
-1781208573 source:c:\users\54296\desktop\cafe_virtual\detalleventas.cpp
+1782949664 source:c:\users\54296\desktop\cafe_virtual\detalleventas.cpp
 	<iostream>
 	<cstring>
 	<cctype>
 	"DetalleVentas.h"
 
-1781060574 c:\users\54296\desktop\cafe_virtual\detalleventas.h
+1782949664 c:\users\54296\desktop\cafe_virtual\detalleventas.h
 
-1781209648 source:c:\users\54296\desktop\cafe_virtual\archivodetalleventas.cpp
+1782949664 source:c:\users\54296\desktop\cafe_virtual\archivodetalleventas.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
 	"ArchivoDetalleVentas.h"
 
-1781055443 c:\users\54296\desktop\cafe_virtual\archivodetalleventas.h
+1782949664 c:\users\54296\desktop\cafe_virtual\archivodetalleventas.h
 	"DetalleVentas.h"
 
-1781476164 source:c:\users\54296\desktop\cafe_virtual\archivocompras.cpp
+1782949664 source:c:\users\54296\desktop\cafe_virtual\archivocompras.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
 	"ArchivoCompras.h"
 
-1781476977 source:c:\users\54296\desktop\cafe_virtual\compras.cpp
+1782949664 source:c:\users\54296\desktop\cafe_virtual\compras.cpp
 	<iostream>
 	<cstring>
 	<cctype>
 	"Compras.h"
 
-1781209633 c:\users\54296\desktop\cafe_virtual\compras.h
+1782949664 c:\users\54296\desktop\cafe_virtual\compras.h
 
-1781209618 c:\users\54296\desktop\cafe_virtual\archivocompras.h
+1782949664 c:\users\54296\desktop\cafe_virtual\archivocompras.h
 	"Compras.h"
 
-1781209599 source:c:\users\54296\desktop\cafe_virtual\archivodetallecompras.cpp
+1782949664 source:c:\users\54296\desktop\cafe_virtual\archivodetallecompras.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
 	"ArchivoDetalleCompras.h"
 
-1781208644 source:c:\users\54296\desktop\cafe_virtual\detallecompras.cpp
+1782949664 source:c:\users\54296\desktop\cafe_virtual\detallecompras.cpp
 	<iostream>
 	<cstring>
 	<cctype>
 	"DetalleCompras.h"
 
-1781208573 c:\users\54296\desktop\cafe_virtual\detallecompras.h
+1782949664 c:\users\54296\desktop\cafe_virtual\detallecompras.h
 
-1781208909 c:\users\54296\desktop\cafe_virtual\archivodetallecompras.h
+1782949664 c:\users\54296\desktop\cafe_virtual\archivodetallecompras.h
 	"DetalleCompras.h"
 
-1781323109 source:c:\users\54296\desktop\cafe_virtual\archivoproveedores.cpp
+1783639429 source:c:\users\54296\desktop\cafe_virtual\archivoproveedores.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
+	<iomanip>
 	"ArchivoProveedores.h"
 
-1781476455 source:c:\users\54296\desktop\cafe_virtual\proveedores.cpp
+1783639445 source:c:\users\54296\desktop\cafe_virtual\proveedores.cpp
 	<iostream>
 	<cstring>
 	<cctype>
+	<iomanip>
 	"Proveedores.h"
 	"ArchivoProveedores.h"
 
-1781317545 c:\users\54296\desktop\cafe_virtual\proveedores.h
+1783534378 c:\users\54296\desktop\cafe_virtual\proveedores.h
 
-1781323109 c:\users\54296\desktop\cafe_virtual\archivoproveedores.h
+1783639351 c:\users\54296\desktop\cafe_virtual\archivoproveedores.h
 	"Proveedores.h"
 
 1782207708 source:c:\users\admin\desktop\cafe_virtual\cafe_virtual\archivoclientes.cpp

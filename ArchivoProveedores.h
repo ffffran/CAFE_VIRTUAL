@@ -13,7 +13,7 @@ class ArchivoProveedores{
 
         bool guardar(Proveedores proveedor);
         Proveedores Leer(int posicion);
-        int contarRegistros();
+        int contarRegistros(bool estado);
         int Buscar(int id);
         void Listar();
         bool Modificar(Proveedores proveedor, int posicion);

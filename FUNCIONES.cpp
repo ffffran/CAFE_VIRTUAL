@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 #include "FUNCIONES.h"
 #include "Productos.h"
 #include "ArchivoProductos.h"
@@ -99,6 +100,7 @@ void menuPrincipal(){
 
                 ArchivoProductos aProducto;
                 aProducto.Listar();
+                system("pause");
                 break;
             }
             case 0:
@@ -303,7 +305,28 @@ void menuVenta(){
 
         cout<<"MENU PRODUCTOS EN VENTA"<<endl;
         cout<<"=========================="<<endl;
-        parchivo.Listar();
+
+        cout<<left;
+        cout<<setw(6)<<"ID";
+        cout<<setw(35)<<"NOMBRE";
+        cout<<setw(12)<<"PRECIO";
+        cout<<setw(15)<<"CATEGORIA";
+        cout<<setw(10)<<"TAMANIO";
+        cout<<setw(8)<<"STOCK";
+        cout<<setw(10)<<"ESTADO";
+        cout<<endl;
+
+        cout<<string(94, '.')<<endl;
+
+        for(int i = 0; i < parchivo.Contar(); i++){
+
+            producto = parchivo.Leer(i);
+
+            if(producto.get_estadoProducto()){
+
+                producto.mostrar();
+            }
+        }
         cout<<endl<<endl;
         cout<<"0 - Para cancelar la venta."<<endl;
         cout<<"============================="<<endl;
@@ -937,106 +960,124 @@ void menuReportes(){
         cout<< "INGRESE OPCION: ";
         cin>>Opcion;
 
-        ///REPORTE/CASE 1 - PRODUCTO MÁS VENDIDO
-
-        DetalleVentas R1_detalleVenta;
-        ArchivoDetalleVentas R1_dvarchivo;
-
-        Productos R1_producto;
-        ArchivoProductos R1_parchivo;
-
-        int R1_cantidadAux = 0;
-        int R1_cantidadProducto = 0;
-        int R1_cantidadMax = 0;
-        int R1_idProducto;
-        int R1_posicion;
-
         switch(Opcion){
 
         case 1:{
 
-            for(int i = 0; i < R1_parchivo.contarRegistros(true); i++){
+            DetalleVentas detalle;
+            ArchivoDetalleVentas adventas;
 
-                R1_cantidadAux = 0;
-                R1_cantidadProducto = 0;
-                R1_producto = R1_parchivo.Leer(i);
+            Productos producto;
+            ArchivoProductos aproductos;
 
-                for(int j = 0; j < R1_dvarchivo.contarRegistros(); j++){
+            int cantidadProductos = aproductos.contarRegistros(true);
+            int *ventasProducto;
+            ventasProducto = new int [cantidadProductos];                     ///oooo podemos hacer int *ventasProducto = new int [cantidadProductos];
 
-                    R1_detalleVenta = R1_dvarchivo.Leer(j);
+            for(int i = 0; i < cantidadProductos; i++){                       ///oooo podemos hacer: ventasProducto = new int [cantidadProductos]{};
 
-                    if(R1_producto.get_idProducto() == R1_detalleVenta.get_idProductoDetalle()){
-
-                        R1_cantidadProducto+=R1_detalleVenta.get_cantidadUnidadesDetalle();
-
-                    }
-
-                    if(R1_cantidadProducto > R1_cantidadAux){
-
-                        R1_cantidadAux = R1_cantidadProducto;
-                    }
-
-                    if(R1_cantidadAux > R1_cantidadMax){
-
-                        R1_cantidadMax = R1_cantidadAux;
-                        R1_idProducto = R1_producto.get_idProducto();
-                    }
-                }
-
-                R1_posicion = R1_parchivo.Buscar(R1_idProducto);
-                R1_producto = R1_parchivo.Leer(R1_posicion);
-
-                system("cls");
-
-                cout<<"Producto mas vendido:"<<endl;
-                cout<<"==============================================================="<<endl;
-                cout<<"(ID "<<R1_producto.get_idProducto()<<") "<<R1_producto.get_nombreProducto()<<", Con "<<R1_cantidadMax<<" unidades vendidas desde su creacion!!!"<<endl;
-                cout<<"==============================================================="<<endl;
-                system("pause");
-
+                ventasProducto[i] = 0;
             }
+
+            int cantidadDetalles = adventas.contarRegistros();
+
+            for(int i = 0; i < cantidadDetalles; i++){
+
+                detalle = adventas.Leer(i);
+                ventasProducto[detalle.get_idProductoDetalle() - 1] += detalle.get_cantidadUnidadesDetalle();
+            }
+
+            int maximo = 0;
+            int indmax = 0;
+
+            for(int i = 0; i < cantidadProductos; i++){
+
+                if(ventasProducto[i] > maximo){
+
+                    maximo = ventasProducto[i];
+                    indmax = i;
+                }
+            }
+
+            producto = aproductos.Leer(indmax);
+
+            system("cls");
+
+            cout<<"Producto mas vendido:"<<endl;
+            cout<<"==============================================================="<<endl;
+            cout<<"(ID "<<producto.get_idProducto()<<") "<<producto.get_nombreProducto()<<", Con "<<maximo<<" unidades vendidas desde su creacion!!!"<<endl;
+            cout<<"==============================================================="<<endl;
+            system("pause");
+
+            delete [] ventasProducto;
 
             break;
         }
 
         case 2:{
 
-            ArchivoDetalleVentas dvArchivo;
-            ArchivoProductos pArchivo;
             DetalleVentas detalle;
+            ArchivoDetalleVentas adventas;
+
             Productos producto;
-            int cantidadDetalles = dvArchivo.contarRegistros();
+            ArchivoProductos aproductos;
+
+            int cantidadDetalles = adventas.contarRegistros();
+            int cantidadProductos = aproductos.contarRegistros(true);
+
+            Productos *productos = new Productos[cantidadProductos];
+
+            for(int i = 0; i < cantidadProductos; i++){
+
+                productos[i] = aproductos.Leer(i);
+
+            }
+
             float recBebidas = 0;
             float recCafeteria = 0;
             float recPasteleria = 0;
 
-            //Lectura
             for(int i = 0; i < cantidadDetalles; i++){
-                detalle = dvArchivo.Leer(i);
-                int pos = pArchivo.Buscar(detalle.get_idProductoDetalle());
 
-                if(pos != -1){
-                    producto = pArchivo.Leer(pos);
-                    char categoria = producto.get_categoriaProducto();
-                    float subtotal = detalle.get_subTotalDetalle();
+                detalle = adventas.Leer(i);
 
-                    //Acumuladores
-                    if(categoria == 'B') recBebidas += subtotal;
-                    else if(categoria == 'C') recCafeteria += subtotal;
-                    else if(categoria == 'P') recPasteleria += subtotal;
+                // Obtener directamente el producto desde el vector
+                producto = productos[detalle.get_idProductoDetalle() - 1];
+
+                float subtotal = detalle.get_subTotalDetalle();
+
+                switch(producto.get_categoriaProducto()){
+
+                case 'B':
+                    recBebidas += subtotal;
+                    break;
+
+                case 'C':
+                    recCafeteria += subtotal;
+                    break;
+
+                case 'P':
+                    recPasteleria += subtotal;
+                    break;
                 }
             }
 
-            //Total
+            delete[] productos;
+
+            // Mostrar resultados
             system("cls");
-            cout << "Ventas por categorias:" << endl;
-            cout << "=============================" << endl;
-            cout << "CAFETERIA: " << recCafeteria << "$" << endl;
-            cout << "BEBIDAS: " << recBebidas << "$" << endl;
-            cout << "PASTELERIA: " << recPasteleria << "$" << endl;
-            cout << "=============================" << endl;
-            cout << endl;
+
+            cout<<"Ventas por Categoria"<<endl;
+            cout<<"=================================="<<endl;
+            cout<<"CAFETERIA : $"<<recCafeteria<<endl;
+            cout<<"BEBIDAS   : $"<<recBebidas<<endl;
+            cout<<"PASTELERIA: $"<<recPasteleria<<endl;
+            cout<<"=================================="<<endl;
+
+            cout<<endl;
+
             system("pause");
+
             break;
         }
 
@@ -1177,6 +1218,7 @@ void altaProducto(){
 
         cout<<"Ingrese el ID del producto que quiere dar de alta: ";
         cin>>id;
+        cout<<endl;
 
         posicion = archivo.Buscar(id);
 
@@ -1193,6 +1235,10 @@ void altaProducto(){
 
         archivo.Modificar(producto, posicion);
 
+        encabezadoProductos();
+
+        archivo.Listar();
+        cout<<endl;
 
         if(archivo.Leer(posicion).get_estadoProducto() == true){
 
@@ -1218,6 +1264,7 @@ void bajaProducto(){
 
     cout<<"Ingrese el ID del producto que quiere dar de baja: ";
     cin>>id;
+    cout<<endl;
 
     posicion = archivo.Buscar(id);
 
@@ -1234,6 +1281,10 @@ void bajaProducto(){
 
     archivo.Modificar(producto, posicion);
 
+    encabezadoProductos();
+
+    archivo.Listar();
+    cout<<endl;
 
     if(archivo.Leer(posicion).get_estadoProducto() == false){
 
@@ -1352,10 +1403,15 @@ void modificarProducto(){
     cout<<"==========================="<<endl;
     cout<<"1 - Nombre"<<endl;
     cout<<"2 - Precio"<<endl;
-    cout<<"3 - Stock Minimo"<<endl;
+    cout<<"3 - Categoria"<<endl;
+    cout<<"4 - Tamanio"<<endl;
+    cout<<"5 - Stock Minimo"<<endl;
+    cout<<"6 - Estado"<<endl;
     cout<<"0 - Salir"<<endl;
     cout<<"==========================="<<endl;
     cin>>opcion;
+
+    cin.ignore();
 
     switch(opcion){
 
@@ -1364,7 +1420,7 @@ void modificarProducto(){
         char nombreNuevo[50];
 
         cout<<"Ingrese su nuevo nombre: ";
-        cin>>nombreNuevo;
+        cin.getline(nombreNuevo,50);
 
         producto.set_nombreProducto(nombreNuevo);
         break;
@@ -1381,6 +1437,28 @@ void modificarProducto(){
 
     case 3:
 
+        char categoriaNueva;
+
+        cout<<"c = cafetería, p = pastelería o b = bebidas"<<endl<<endl;
+        cout<<"Ingrese su nueva categoria: ";
+        cin>>categoriaNueva;
+
+        producto.set_categoriaProducto(categoriaNueva);
+        break;
+
+    case 4:
+
+        char tamanioNuevo;
+
+        cout<<"p = pequeño, m = mediano o g = grande"<<endl<<endl;
+        cout<<"Ingrese su nueva categoria: ";
+        cin>>tamanioNuevo;
+
+        producto.set_tamanioProducto(tamanioNuevo);
+        break;
+
+    case 5:
+
         int stockMinimoNuevo;
 
         cout<<"Ingrese su nuevo Stock Minimo: ";
@@ -1389,12 +1467,33 @@ void modificarProducto(){
         producto.set_stockMinimo(stockMinimoNuevo);
         break;
 
+    case 6:
+
+        bool estadoNuevo;
+
+        cout<<"1 - Activo | 0 - Inactivo"<<endl<<endl;
+        cout<<"Ingrese su nuevo estado: ";
+        cin>>estadoNuevo;
+
+        producto.set_estadoProducto(estadoNuevo);
+        break;
+
     case 0:
 
         return;
     }
 
     archivo.Modificar(producto, posicion);
+
+    system("cls");
+
+    encabezadoProductos();
+
+    producto.mostrar();
+
+    cout<<endl;
+    cout<<"El cambio fue realizado con exito :)"<<endl<<endl;
+    system("pause");
 }
 
 /**
@@ -1425,14 +1524,14 @@ void altaCliente(){
 
     if(archivo.guardar(cliente)){
 
+        archivo.Listar();
         cout<<"El cliente se guardo correctamente! :)"<<endl;
     }
     else{
 
         cout<<"Error al guardar cliente. :("<<endl;
+        system("pause");
     }
-
-    system("pause");
 }
 
 void bajaCliente(){
@@ -1464,14 +1563,14 @@ void bajaCliente(){
 
     if(archivo.Leer(posicion).get_estadoCliente() == false){
 
+        archivo.Listar();
         cout<<"El cliente se dio de baja correctamente! :)"<<endl;
     }
     else{
 
         cout<<"Error al dar de baja el cliente. :("<<endl;
+        system("pause");
     }
-
-    system("pause");
 }
 
 void mostrarClientes(){
@@ -1527,23 +1626,38 @@ void mostrarClientes(){
         return;
     }
 
+    system("cls");
+
+    cout<<left;
+    cout<<setw(6)<<"ID";
+    cout<<setw(35)<<"NOMBRE";
+    cout<<setw(12)<<"DNI";
+    cout<<setw(20)<<"TELEFONO";
+    cout<<setw(40)<<"MAIL";
+    cout<<setw(8)<<"MIEMBRO";
+    cout<<endl;
+
+    cout<<string(125, '.')<<endl;
+
     for(int i = 0; i < cantidadTotal; i++){
 
         cliente = archivo.Leer(i);
 
         if(opcion == 1 && cliente.get_miembroCliente()){
 
-            archivo.Listar();
+            cliente.mostrar();
         }
         else if(opcion == 2 && !cliente.get_miembroCliente()){
 
-            archivo.Listar();
+            cliente.mostrar();
         }
         else if(opcion == 3){
 
-            archivo.Listar();
+            cliente.mostrar();
         }
     }
+
+    system("pause");
 }
 
 void modificarCliente(){
@@ -1581,6 +1695,8 @@ void modificarCliente(){
     cout<<"==========================="<<endl;
     cin>>opcion;
 
+    cin.ignore();
+
     switch(opcion){
 
     case 1:
@@ -1588,7 +1704,7 @@ void modificarCliente(){
         char nombreNuevo[40];
 
         cout<<"Ingrese su nuevo nombre: ";
-        cin>>nombreNuevo;
+        cin.getline(nombreNuevo,40);
 
         cliente.set_nombreCliente(nombreNuevo);
         break;
@@ -1608,7 +1724,7 @@ void modificarCliente(){
         char telefonoNuevo[20];
 
         cout<<"Ingrese su nuevo telefono: ";
-        cin>>telefonoNuevo;
+        cin.getline(telefonoNuevo,20);
 
         cliente.set_telefonoCliente(telefonoNuevo);
         break;
@@ -1629,6 +1745,16 @@ void modificarCliente(){
     }
 
     archivo.Modificar(cliente, posicion);
+
+    system("cls");
+
+
+
+    cliente.mostrar();
+
+    cout<<endl;
+    cout<<"El cambio fue realizado con exito :)"<<endl<<endl;
+    system("pause");
 }
 
 void mostrarVentas(){
@@ -1710,9 +1836,78 @@ void bajaProveedor(){
 
 void mostrarProveedores(){
 
+    Proveedores proveedor;
     ArchivoProveedores archivo;
 
-    archivo.Listar();
+    int opcion;
+
+    cout<<"MENU MOSTRAR PROVEEDORES"<<endl;
+    cout<<"========================"<<endl;
+    cout<<"1 - Activos";
+    cout<<endl;
+    cout<<"2 - Inactivos";
+    cout<<endl;
+    cout<<"3 - Todos";
+    cout<<endl;
+    cout<<"0 - Salir"<<endl;
+    cout<<"========================"<<endl;
+    cout<< "INGRESE OPCION: ";
+    cin>>opcion;
+
+    if(opcion < 0 || opcion > 3){
+
+        cout<<"Opcion invalida"<<endl;
+        system("pause");
+        return;
+    }
+
+    int cantidadTotal = archivo.Contar();
+
+    int activos = archivo.contarRegistros(true);
+    int inactivos = archivo.contarRegistros(false);
+
+    if(opcion == 1 && activos == 0){
+
+        cout<<"Ningun Proveedor esta Activo"<<endl;
+        system("pause");
+        return;
+    }
+
+    if(opcion == 2 && inactivos == 0){
+
+        cout<<"Todos los Proveedores estan Activos"<<endl;
+        system("pause");
+        return;
+    }
+
+    if(opcion == 3 && cantidadTotal == 0){
+
+        cout<<"No hay Proveedores cargados aun"<<endl;
+        system("pause");
+        return;
+    }
+
+    system("cls");
+
+    encabezadoProveedores();
+
+    for(int i = 0; i < cantidadTotal; i++){
+
+        proveedor = archivo.Leer(i);
+
+        if(opcion == 1 && proveedor.get_estadoProveedor()){
+
+            proveedor.mostrar();
+        }
+        else if(opcion == 2 && !proveedor.get_estadoProveedor()){
+
+            proveedor.mostrar();
+        }
+        else if(opcion == 3){
+
+            proveedor.mostrar();
+        }
+    }
 
     system("pause");
 }
@@ -1752,6 +1947,8 @@ void modificarProveedor(){
     cout<<"==========================="<<endl;
     cin>>opcion;
 
+    cin.ignore();
+
     switch(opcion){
 
     case 1:
@@ -1759,7 +1956,7 @@ void modificarProveedor(){
         char nombreNuevo[60];
 
         cout<<"Ingrese su nuevo nombre: ";
-        cin>>nombreNuevo;
+        cin.getline(nombreNuevo,60);
 
         proveedor.set_nombreEmpresa(nombreNuevo);
         break;
@@ -1769,7 +1966,7 @@ void modificarProveedor(){
         char rubroNuevo[55];
 
         cout<<"Ingrese su nuevo rubro: ";
-        cin>>rubroNuevo;
+        cin.getline(rubroNuevo,55);
 
         proveedor.set_rubroEmpresa(rubroNuevo);
         break;
@@ -1779,7 +1976,7 @@ void modificarProveedor(){
         char telefonoNuevo[20];
 
         cout<<"Ingrese su nuevo telefono: ";
-        cin>>telefonoNuevo;
+        cin.getline(telefonoNuevo,20);
 
         proveedor.set_telefonoEmpresa(telefonoNuevo);
         break;
@@ -1789,7 +1986,7 @@ void modificarProveedor(){
         char paisNuevo[40];
 
         cout<<"Ingrese su nuevo mail: ";
-        cin>>paisNuevo;
+        cin.getline(paisNuevo,40);
 
         proveedor.set_paisEmpresa(paisNuevo);
         break;
@@ -1799,7 +1996,7 @@ void modificarProveedor(){
         char locacioNuevo[40];
 
         cout<<"Ingrese su nuevo mail: ";
-        cin>>locacioNuevo;
+        cin.getline(locacioNuevo,40);
 
         proveedor.set_locacionEmpresa(locacioNuevo);
         break;
@@ -1810,6 +2007,16 @@ void modificarProveedor(){
     }
 
     archivo.Modificar(proveedor, posicion);
+
+    system("cls");
+
+    encabezadoProveedores();
+
+    proveedor.mostrar();
+
+    cout<<endl;
+    cout<<"El cambio fue realizado con exito :)"<<endl<<endl;
+    system("pause");
 }
 
 void mostrarCompras(){
@@ -1829,3 +2036,47 @@ void mostrarDetalleCompras(){
 
     system("pause");
 }
+
+void encabezadoProductos(){
+
+    cout<<left;
+    cout<<setw(6)<<"ID";
+    cout<<setw(35)<<"NOMBRE";
+    cout<<setw(12)<<"PRECIO";
+    cout<<setw(15)<<"CATEGORIA";
+    cout<<setw(10)<<"TAMANIO";
+    cout<<setw(8)<<"STOCK";
+    cout<<setw(8)<<"ESTADO";
+    cout<<endl;
+
+    cout<<string(95, '.')<<endl;
+}
+
+void encabezadoClientes(){
+
+    cout<<left;
+    cout<<setw(6)<<"ID";
+    cout<<setw(35)<<"NOMBRE";
+    cout<<setw(12)<<"DNI";
+    cout<<setw(20)<<"TELEFONO";
+    cout<<setw(40)<<"MAIL";
+    cout<<setw(8)<<"MIEMBRO";
+    cout<<endl;
+
+    cout<<string(125, '.')<<endl;
+}
+
+void encabezadoProveedores(){
+
+    cout<<left;
+    cout<<setw(6)<<"ID";
+    cout<<setw(40)<<"NOMBRE";
+    cout<<setw(30)<<"RUBRO";
+    cout<<setw(30)<<"PAIS";
+    cout<<setw(30)<<"LOCACION";
+    cout<<setw(20)<<"TELEFONO";
+    cout<<endl;
+
+    cout<<string(155, '.')<<endl;
+}
+

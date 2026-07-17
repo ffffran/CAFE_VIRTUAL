@@ -16,7 +16,7 @@ void Proveedores::cargar(){
 
     ArchivoProveedores archivo;
 
-    set_idProveedor(archivo.contarRegistros());
+    set_idProveedor(archivo.Contar());
 
     cout<<"Alta de Proveedores - Nombre"<<endl;
     cout<<"========================"<<endl;
@@ -68,10 +68,10 @@ void Proveedores::mostrar(){
 
     cout<<left;
     cout<<setw(6)<<idProveedor;
-    cout<<setw(55)<<nombreEmpresa;
-    cout<<setw(60)<<rubroEmpresa;
-    cout<<setw(40)<<paisEmpresa;
-    cout<<setw(40)<<locacionEmpresa;
+    cout<<setw(40)<<nombreEmpresa;
+    cout<<setw(30)<<rubroEmpresa;
+    cout<<setw(30)<<paisEmpresa;
+    cout<<setw(30)<<locacionEmpresa;
     cout<<setw(20)<<telefonoEmpresa;
 
     cout<<endl;

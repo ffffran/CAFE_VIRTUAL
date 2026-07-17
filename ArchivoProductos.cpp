@@ -172,20 +172,15 @@ void ArchivoProductos::Listar(){
     cout<<setw(15)<<"CATEGORIA";
     cout<<setw(10)<<"TAMANIO";
     cout<<setw(8)<<"STOCK";
+    cout<<setw(10)<<"ESTADO";
     cout<<endl;
 
-    cout<<string(84, '.')<<endl;
+    cout<<string(94, '.')<<endl;
 
     for(int i = 0; i < parchivo.Contar(); i++){
 
         producto = parchivo.Leer(i);
-
-        if(producto.get_estadoProducto()){
-
-            producto.mostrar();
-        }
+        producto.mostrar();
     }
-
-    system("pause");
 }
 

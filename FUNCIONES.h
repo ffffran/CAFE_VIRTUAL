@@ -7,7 +7,6 @@ void menuCompra();
 void menuAbm();
 void menuReportes();
 
-
 void altaProducto();
 void bajaProducto();
 void mostrarProductos();
@@ -28,4 +27,8 @@ void modificarProveedor();
 
 void mostrarCompras();
 void mostrarDetalleCompras();
+
+void encabezadoProductos();
+void encabezadoClientes();
+void encabezadoProveedores();
 #endif // FUNCIONES_H_INCLUDED

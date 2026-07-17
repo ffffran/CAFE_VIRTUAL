@@ -121,6 +121,18 @@ void Productos::mostrar(){
 
     cout<<setw(8)<<stockProducto;
 
+    switch(estadoProducto){
+
+    case true:
+        cout<<setw(10)<<"ACTIVO";
+        break;
+
+    case false:
+        cout<<setw(10)<<"INACTIVO";
+        break;
+    }
+
+
     cout<<endl;
 }
 
