@@ -21,10 +21,17 @@ void Clientes::cargar(){
 
     set_idCliente(archivo.Contar());
 
-    cout<<"Alta de Clientes - Nombre"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese el nombre del Cliente: ";
-    cin.getline(nombre,40);
+    do{
+        cout<<"Alta de Clientes - Nombre"<<endl;
+        cout<<"========================"<<endl;
+        cout<<"Ingrese el nombre del Cliente: ";
+        cin.getline(nombre,40);
+
+        if(strlen(nombre)==0){
+            cout<<"No puede quedar vacío."<<endl;
+        }
+
+    }while(strlen(nombre)==0);
 
     set_nombreCliente(nombre);
 
@@ -93,7 +100,19 @@ void Clientes::mostrar(){
 
         cout<<setw(8)<<"   NO";
     }
+
+    if(estadoCliente == true){
+
+        cout<<setw(8)<<" ACTIVO";
+    }
+    else if(estadoCliente == false){
+
+        cout<<setw(8)<<" INACTIVO";
+    }
+
     cout<<endl;
+
+
 }
 
 void Clientes::set_idCliente(int idIngresado){

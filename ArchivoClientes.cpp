@@ -174,13 +174,9 @@ int ArchivoClientes::Listar(){
 
         cliente = carchivo.Leer(i);
 
-        if(cliente.get_estadoCliente()){
+        cliente.mostrar();
 
-            cliente.mostrar();
-        }
     }
-
-    system("pause");
 
     return 0;
 }

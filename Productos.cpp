@@ -20,18 +20,36 @@ void Productos::cargar(){
 
     set_idProducto(archivo.Contar() + 1);
 
-    cout<<"Alta de Productos - Nombre"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese el nombre del producto: ";
-    cin.getline(nombre,50);
+    do{
+        cout<<"Alta de Productos - Nombre"<<endl;
+        cout<<"========================"<<endl;
+        cout<<"Ingrese el nombre del producto: ";
+        cin.getline(nombre,50);
+
+        if(strlen(nombre)==0){
+            cout<<"No puede quedar vacío."<<endl;
+        }
+
+    }while(strlen(nombre)==0);
+
     set_nombreProducto(nombre);
 
     system("cls");
 
-    cout<<"Alta de Productos - Precio"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese el precio del producto: $";
-    cin>> precio;
+    do{
+        cout<<"Alta de Productos - Precio"<<endl;
+        cout<<"========================"<<endl;
+        cout<<"Ingrese el precio del producto: $";
+        cin>> precio;
+
+        if(precio <= 0){
+            cout<<"ERROR. El precio debe ser mayor a 0.\n";
+            system("pause");
+            system("cls");
+        }
+
+    }while(precio <= 0);
+
     set_precioProducto(precio);
 
     system("cls");
@@ -42,7 +60,7 @@ void Productos::cargar(){
     cout<<"Ingrese la categoria del producto: ";
     cin>> categoria;
 
-    if(categoria != 'B' && categoria != 'C' && categoria != 'P'){
+    if(categoria != 'B' && categoria != 'C' && categoria != 'P' && categoria != 'b' && categoria != 'c' && categoria != 'p'){
 
         cout<<"Esta categoria no existe en el sistema."<<endl;
         system("pause");
@@ -60,23 +78,53 @@ void Productos::cargar(){
     cout<<"Ingrese el tamanio del producto: ";
     cin>> tamanio;
 
-    set_tamanioProducto(tamanio);
+    if(categoria != 'P' && categoria != 'M' && categoria != 'G' && categoria != 'p' && categoria != 'm' && categoria != 'g'){
+
+        cout<<"Este tamanio no existe en el sistema."<<endl;
+        system("pause");
+    }
+    else{
+
+        set_tamanioProducto(tamanio);
+    }
 
     system("cls");
 
-    cout<<"Alta de Productos - Stock"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese el stock del producto: ";
-    cin>> stock;
+    do{
+        cout<<"Alta de Productos - Stock"<<endl;
+        cout<<"========================"<<endl;
+        cout<<"Ingrese el stock del producto: ";
+        cin>> stock;
+
+        if(stock <= 0){
+
+            cout<<"El stock no puede ser negativo.";
+            system("pause");
+            system("cls");
+        }
+
+    }while(stock <= 0);
+
     set_stockProducto(stock);
 
     system("cls");
 
-    cout<<"Alta de Productos - Stock Minimo"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Nota: Es el stock minimo antes de comprar para reponer"<<endl<<endl;
-    cout<<"Ingrese el stock MINIMO del producto: ";
-    cin>> stockMin;
+    do{
+        cout<<"Alta de Productos - Stock Minimo"<<endl;
+        cout<<"========================"<<endl;
+        cout<<"Nota: Es el stock minimo antes de comprar para reponer"<<endl<<endl;
+        cout<<"Ingrese el stock MINIMO del producto: ";
+        cin>> stockMin;
+
+        if(stockMin < 1){
+
+            cout<<"El stock no puede ser cero.";
+            system("pause");
+            system("cls");
+        }
+
+    }while(stockMin < 1);
+
     set_stockMinimo(stockMin);
 }
 

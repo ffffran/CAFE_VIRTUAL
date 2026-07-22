@@ -1610,18 +1610,67 @@ void altaCliente(){
 
     Clientes cliente;
     ArchivoClientes archivo;
+    int opcion;
 
-    cliente.cargar();
-    cliente.darAlta();
+    cout<<"1 - Para dar de alta un cliente viejo | 2 - Para dar de alta un cliente nuevo"<<endl;
+    cout<<"Eleccion: ";
+    cin>> opcion;
 
-    if(archivo.guardar(cliente)){
+    system("cls");
+
+    if(opcion == 2){
+
+        cliente.cargar();
+        cliente.darAlta();
+
+        if(archivo.guardar(cliente)){
+
+            archivo.Listar();
+            cout<<"El cliente se guardo correctamente! :)"<<endl;
+        }
+        else{
+
+            cout<<"Error al guardar cliente. :("<<endl;
+            system("pause");
+        }
+    }
+
+    else if (opcion == 1){
+
+        int id;
+        int posicion;
+
+        cout<<"Ingrese el ID del cliente que quiere dar de alta: ";
+        cin>>id;
+        cout<<endl;
+
+        posicion = archivo.Buscar(id);
+
+        if(posicion == -1){
+
+            cout<<"Cliente NO encontrado."<<endl;
+            system("pause");
+            return;
+        }
+
+        cliente = archivo.Leer(posicion);
+
+        cliente.darAlta();
+
+        archivo.Modificar(cliente, posicion);
 
         archivo.Listar();
-        cout<<"El cliente se guardo correctamente! :)"<<endl;
-    }
-    else{
+        cout<<endl;
 
-        cout<<"Error al guardar cliente. :("<<endl;
+        if(archivo.Leer(posicion).get_estadoCliente() == true){
+
+            cout<<"El cleinte se dio de alta de nuevo correctamente! :)"<<endl;
+        }
+        else{
+
+            cout<<"Error al dar de alta de nuevo el cliente. :("<<endl;
+        }
+
         system("pause");
     }
 }
@@ -1633,6 +1682,8 @@ void bajaCliente(){
 
     int id;
     int posicion;
+
+    archivo.Listar();
 
     cout<<"Ingrese el ID del Cliente que quiere dar de baja: ";
     cin>> id;
@@ -1652,11 +1703,13 @@ void bajaCliente(){
 
     archivo.Modificar(cliente, posicion);
 
+    system("cls");
 
     if(archivo.Leer(posicion).get_estadoCliente() == false){
 
         archivo.Listar();
         cout<<"El cliente se dio de baja correctamente! :)"<<endl;
+        system("pause");
     }
     else{
 
@@ -1678,14 +1731,16 @@ void mostrarClientes(){
     cout<<endl;
     cout<<"2 - No Miembros";
     cout<<endl;
-    cout<<"3 - Todos";
+    cout<<"3 - Ambos";
+    cout<<endl;
+    cout<<"4 - Todos";
     cout<<endl;
     cout<<"0 - Salir"<<endl;
     cout<<"========================"<<endl;
     cout<< "INGRESE OPCION: ";
     cin>>opcion;
 
-    if(opcion < 0 || opcion > 3){
+    if(opcion < 0 || opcion > 4){
 
         cout<<"Opcion invalida"<<endl;
         system("pause");
@@ -1711,7 +1766,7 @@ void mostrarClientes(){
         return;
     }
 
-    if(opcion == 3 && cantidadTotal == 0){
+    if(opcion == 3 && cantidadTotal == 0 || opcion == 4 && cantidadTotal == 0){
 
         cout<<"No hay clientes cargados aun"<<endl;
         system("pause");
@@ -1743,12 +1798,16 @@ void mostrarClientes(){
 
             cliente.mostrar();
         }
-        else if(opcion == 3){
+        else if(opcion == 3 && cliente.get_estadoCliente()){
 
             cliente.mostrar();
         }
     }
 
+    if(opcion == 4){
+
+        archivo.Listar();
+    }
     system("pause");
 }
 
@@ -1871,20 +1930,68 @@ void altaProveedor(){
 
     Proveedores proveedor;
     ArchivoProveedores archivo;
+    int opcion;
 
-    proveedor.cargar();
-    proveedor.darAlta();
+    cout<<"1 - Para dar de alta un proveedor viejo | 2 - Para dar de alta un proveedor nuevo"<<endl;
+    cout<<"Eleccion: ";
+    cin>> opcion;
 
-    if(archivo.guardar(proveedor)){
+    system("cls");
 
-        cout<<"El proveedor se guardo correctamente! :)"<<endl;
+    if(opcion == 2){
+
+        proveedor.cargar();
+        proveedor.darAlta();
+
+        if(archivo.guardar(proveedor)){
+
+            cout<<"El proveedor se guardo correctamente! :)"<<endl;
+        }
+        else{
+
+            cout<<"Error al guardar proveedor. :("<<endl;
+        }
+
+        system("pause");
     }
-    else{
+    else if (opcion == 1){
 
-        cout<<"Error al guardar proveedor. :("<<endl;
+        int id;
+        int posicion;
+
+        cout<<"Ingrese el ID del proveedor que quiere dar de alta: ";
+        cin>>id;
+        cout<<endl;
+
+        posicion = archivo.Buscar(id);
+
+        if(posicion == -1){
+
+            cout<<"Proveedor NO encontrado."<<endl;
+            system("pause");
+            return;
+        }
+
+        proveedor = archivo.Leer(posicion);
+
+        proveedor.darAlta();
+
+        archivo.Modificar(proveedor, posicion);
+
+        archivo.Listar();
+        cout<<endl;
+
+        if(archivo.Leer(posicion).get_estadoProveedor() == true){
+
+            cout<<"El proveedor se dio de alta de nuevo correctamente! :)"<<endl;
+        }
+        else{
+
+            cout<<"Error al dar de alta de nuevo el proveedor. :("<<endl;
+        }
+
+        system("pause");
     }
-
-    system("pause");
 }
 
 void bajaProveedor(){

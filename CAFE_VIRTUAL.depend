@@ -6,7 +6,7 @@
 
 1784688699 c:\users\54296\desktop\cafe_virtual\funciones.h
 
-1784689599 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
+1784696214 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
 	<iostream>
 	<cstring>
 	<iomanip>
@@ -27,7 +27,7 @@
 	"ArchivoDetalleCompras.h"
 	"Fecha.h"
 
-1784679932 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
+1784693622 source:c:\users\54296\desktop\cafe_virtual\productos.cpp
 	<iostream>
 	<cstring>
 	<cctype>
@@ -47,7 +47,7 @@
 1782949664 c:\users\54296\desktop\cafe_virtual\archivoproductos.h
 	"Productos.h"
 
-1783533715 source:c:\users\54296\desktop\cafe_virtual\archivoclientes.cpp
+1784695740 source:c:\users\54296\desktop\cafe_virtual\archivoclientes.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
@@ -59,7 +59,7 @@
 
 1783355399 c:\users\54296\desktop\cafe_virtual\clientes.h
 
-1783636754 source:c:\users\54296\desktop\cafe_virtual\clientes.cpp
+1784695770 source:c:\users\54296\desktop\cafe_virtual\clientes.cpp
 	<iostream>
 	<cstring>
 	<cctype>
