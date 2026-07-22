@@ -1266,6 +1266,77 @@ void menuReportes(){
             break;
         }
 
+        case 8:{
+
+            ArchivoProveedores archPro;
+            ArchivoCompras archCom;
+
+            int cantP = archPro.Contar();
+            int cantC = archCom.contarRegistros();
+
+            //Nos fijamos si hay proveedores
+            if (cantP == 0){
+                cout << "No hay proveedores registrados aun" << endl;
+                system("pause");
+                break;
+            }
+
+            //Obtenemos el anio actual para definir el filtro
+            Fecha fechaActual;
+            fechaActual.Cargar();
+            int anioActual = fechaActual.get_anio() - 1;
+
+            //Nos fijamos si tuvieron actividad con una bandera
+            bool* tieneActividad = new bool[cantP];
+            for(int i = 0; i < cantP; i++) tieneActividad[i] = false;
+
+            //Leemos las compras para identificar a los proveedores
+            for (int i = 0; i < cantC; i++){
+                Compras c = archCom.Leer(i);
+                if (c.get_fechaCompra().get_anio() >= anioActual){
+
+                    //Buscamos la posicion del proveedor
+                    for(int j = 0; j < cantP; j++){
+                        if(archPro.Leer(j).get_idProveedor() == c.get_idProveedorCompra()){
+                            tieneActividad[j] = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            system("cls");
+            cout << "=======================================================" << endl;
+            cout << "    PROVEEDORES SIN COMPRAS DESDE EL ANIO PASADO       " << endl;
+            cout << "=======================================================" << endl;
+            cout << left << setw(6) << "ID" << setw(35) << "NOMBRE" << "RUBRO" << endl;
+            cout << "-------------------------------------------------------" << endl;
+
+            bool encontrados = false;
+            for (int i = 0; i < cantP; i++){
+                if (!tieneActividad[i]){
+                    Proveedores p = archPro.Leer(i);
+                    //Solo mostramos a los proveedores activos
+                    if(p.get_estadoProveedor()){
+                        cout << left << setw(6) << p.get_idProveedor()
+                            << setw(35) << p.get_nombreEmpresa()
+                            << p.get_rubroEmpresa() << endl;
+                        encontrados = true;
+                    }
+                }
+            }
+
+            if(!encontrados){
+                cout << "No se encontraron proveedores sin compras desde el anio pasado" << endl;
+            }
+
+            cout << "=======================================================" << endl;
+            //Liberamos memoria
+            delete[] tieneActividad;
+            system("pause");
+            break;
+        }
+
         case 0:
 
             return;
@@ -1766,7 +1837,7 @@ void mostrarClientes(){
         return;
     }
 
-    if(opcion == 3 && cantidadTotal == 0 || opcion == 4 && cantidadTotal == 0){
+    if((opcion == 3 && cantidadTotal == 0) || (opcion == 4 && cantidadTotal == 0)){
 
         cout<<"No hay clientes cargados aun"<<endl;
         system("pause");
