@@ -2,6 +2,7 @@
 #include <cstring>
 #include <cctype>
 #include "Compras.h"
+#include "Fecha.h"
 using namespace std;
 
 void Compras::mostrar(){
@@ -9,6 +10,7 @@ void Compras::mostrar(){
     cout<<"ID COMPRA: "<<idCompra<<endl;
     cout<<"ID PROVEEDOR: "<<idProveedorCompra<<endl;
     cout<<"TOTAL: $"<<totalCompra<<endl;
+    fechaCompra.Mostrar();
 }
 
 void Compras::set_idCompra(int idCompraEnviado){
@@ -27,6 +29,11 @@ void Compras::set_idProveedorCompra(int idProveedorEnviado){
     }
 }
 
+void Compras::set_fechaCompra(Fecha fecha){
+
+    fechaCompra = fecha;
+}
+
 void Compras::set_totalCompra(float totalCompraCalculado){
 
     if(totalCompraCalculado > 0){
@@ -43,6 +50,11 @@ int Compras::get_idCompra(){
 int Compras::get_idProveedorCompra(){
 
     return idProveedorCompra;
+}
+
+Fecha Compras::get_fechaCompra(){
+
+    return fechaCompra;
 }
 
 float Compras::get_totalCompra(){

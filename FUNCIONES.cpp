@@ -114,8 +114,9 @@ void menuPrincipal(){
             cout<<"MENU PROVEEDORES"<<endl;
             cout<<"==================="<<endl;
             cout<<"1 - Alta"<<endl;
-            cout<<"2 - Mostrar"<<endl;
-            cout<<"3 - Modificar"<<endl;
+            cout<<"2 - Baja"<<endl;
+            cout<<"3 - Mostrar"<<endl;
+            cout<<"4 - Modificar"<<endl;
             cout<<"0 - Salir"<<endl;
             cout<<"==================="<<endl;
             cin>>opcionproveedores;
@@ -131,10 +132,15 @@ void menuPrincipal(){
 
             case 2:
 
-                mostrarProveedores();
+                bajaProveedor();
                 break;
 
             case 3:
+
+                mostrarProveedores();
+                break;
+
+            case 4:
 
                 modificarProveedor();
                 break;
@@ -497,6 +503,11 @@ void menuVenta(){
         cantidadDetalles++;
     }
 
+    if(cliente.get_miembroCliente() == true){
+
+        TotalFinalVenta = TotalFinalVenta * 0.75;
+    }
+
     ///=====================///
     /// RESUMEN DE LA COMPRA///
     ///=====================///
@@ -573,11 +584,16 @@ void menuVenta(){
 
 void menuCompra(){
 
+    Fecha fecha;
+    fecha.Cargar();
+
     DetalleCompras detallecompra;
     ArchivoDetalleCompras dcarchivo;
 
     Compras compra;
     ArchivoCompras carchivo;
+
+    compra.set_fechaCompra(fecha);
 
     Proveedores proveedor;
     ArchivoProveedores proarchivo;
@@ -802,197 +818,6 @@ void menuCompra(){
 
     cout<<"Su Venta fue procesada con Exito.";
     system("pause");
-}
-
-void menuAbm(){
-
-    int Opcion;
-    int OpcionAlta;
-    int OpcionModificar;
-    int OpcionListado;
-
-    while(true){
-
-        system("cls");
-
-        cout<<"MENU ABML"<<endl;
-        cout<<"========================"<<endl;
-        cout<<"1 - Alta";
-        cout<<endl;
-        cout<<"2 - Baja Productos";
-        cout<<endl;
-        cout<<"3 - Modificacion";
-        cout<<endl;
-        cout<<"4 - Listar";
-        cout<<endl;
-        cout<<"0 - Salir"<<endl;
-        cout<<"========================"<<endl;
-        cout<< "INGRESE OPCION: ";
-        cin>>Opcion;
-
-        system("cls");
-
-        switch(Opcion){
-
-        case 1:
-
-            cout<<"MENU ALTA"<<endl;
-            cout<<"========================"<<endl;
-            cout<<"1 - Alta Producto";
-            cout<<endl;
-            cout<<"2 - Alta Cliente";
-            cout<<endl;
-            cout<<"3 - Alta Proveedor";
-            cout<<endl;
-            cout<<"0 - Salir"<<endl;
-            cout<<"========================"<<endl;
-            cout<< "INGRESE OPCION: ";
-            cin>>OpcionAlta;
-
-            system("cls");
-
-            switch(OpcionAlta){
-
-            case 1:
-
-                altaProducto();
-                break;
-
-            case 2:
-
-                altaCliente();
-                break;
-
-            case 3:
-
-                altaProveedor();
-                break;
-
-            case 0:
-
-                break;
-            }
-
-            break;
-
-        case 2:
-
-            bajaProducto();
-            break;
-
-        case 3:
-
-            cout<<"MENU MODIFICACIONES"<<endl;
-            cout<<"========================"<<endl;
-            cout<<"1 - Modificar Producto";
-            cout<<endl;
-            cout<<"2 - Modificar Cliente";
-            cout<<endl;
-            cout<<"3 - Modificar Proveedor";
-            cout<<endl;
-            cout<<"0 - Salir"<<endl;
-            cout<<"========================"<<endl;
-            cout<< "INGRESE OPCION: ";
-            cin>>OpcionModificar;
-
-            switch(OpcionModificar){
-
-            case 1:
-
-                modificarProducto();
-                break;
-
-            case 2:
-
-                modificarCliente();
-                break;
-
-            case 3:
-
-                modificarProveedor();
-                break;
-
-            case 0:
-
-                break;
-            }
-
-            break;
-
-        case 4:
-
-            cout<<"MENU LISTADO"<<endl;
-            cout<<"========================"<<endl;
-            cout<<"1 - Listar Productos";
-            cout<<endl;
-            cout<<"2 - Listar Clientes";
-            cout<<endl;
-            cout<<"3 - Listar Proveedores";
-            cout<<endl;
-            cout<<"4 - Listar Ventas";
-            cout<<endl;
-            cout<<"5 - Listar Detalle de Ventas";
-            cout<<endl;
-            cout<<"6 - Listar Compras";
-            cout<<endl;
-            cout<<"7 - Listar Detalle de Compras";
-            cout<<endl;
-            cout<<"0 - Salir"<<endl;
-            cout<<"========================"<<endl;
-            cout<< "INGRESE OPCION: ";
-            cin>>OpcionListado;
-
-            system("cls");
-
-            switch(OpcionListado){
-
-            case 1:
-
-                mostrarProductos();
-                break;
-
-            case 2:
-
-                mostrarClientes();
-                break;
-
-            case 3:
-
-                mostrarProveedores();
-                break;
-
-            case 4:
-
-                mostrarVentas();
-                break;
-
-            case 5:
-
-                //mostrarDetalleVentas();
-                break;
-
-            case 6:
-
-                mostrarCompras();
-                break;
-
-            case 7:
-
-                //mostrarDetalleCompras();
-                break;
-
-            case 0:
-
-                break;
-            }
-
-            break;
-
-        case 0:
-
-            return;
-        }
-    }
 }
 
 void menuReportes(){
@@ -2331,8 +2156,9 @@ void encabezadoProveedores(){
     cout<<setw(30)<<"PAIS";
     cout<<setw(30)<<"LOCACION";
     cout<<setw(20)<<"TELEFONO";
+    cout<<setw(8)<<"ESTADO";
     cout<<endl;
 
-    cout<<string(155, '.')<<endl;
+    cout<<string(175, '.')<<endl;
 }
 

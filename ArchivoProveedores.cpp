@@ -118,6 +118,7 @@ void ArchivoProveedores::Listar(){
     cout<<setw(30)<<"PAIS";
     cout<<setw(30)<<"LOCACION";
     cout<<setw(20)<<"TELEFONO";
+    cout<<setw(8)<<"ESTADO";
     cout<<endl;
 
     cout<<string(155, '.')<<endl;

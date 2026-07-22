@@ -4,9 +4,9 @@
 	"FUNCIONES.h"
 	"Fecha.h"
 
-1784686514 c:\users\54296\desktop\cafe_virtual\funciones.h
+1784688699 c:\users\54296\desktop\cafe_virtual\funciones.h
 
-1784686269 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
+1784689599 source:c:\users\54296\desktop\cafe_virtual\funciones.cpp
 	<iostream>
 	<cstring>
 	<iomanip>
@@ -84,7 +84,7 @@
 1783107476 c:\users\54296\desktop\cafe_virtual\ventas.h
 	"Fecha.h"
 
-1782949664 source:c:\users\54296\desktop\cafe_virtual\archivoventas.cpp
+1784688699 source:c:\users\54296\desktop\cafe_virtual\archivoventas.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
@@ -110,19 +110,21 @@
 1784686463 c:\users\54296\desktop\cafe_virtual\archivodetalleventas.h
 	"DetalleVentas.h"
 
-1782949664 source:c:\users\54296\desktop\cafe_virtual\archivocompras.cpp
+1784688699 source:c:\users\54296\desktop\cafe_virtual\archivocompras.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
 	"ArchivoCompras.h"
 
-1782949664 source:c:\users\54296\desktop\cafe_virtual\compras.cpp
+1784688887 source:c:\users\54296\desktop\cafe_virtual\compras.cpp
 	<iostream>
 	<cstring>
 	<cctype>
 	"Compras.h"
+	"Fecha.h"
 
-1782949664 c:\users\54296\desktop\cafe_virtual\compras.h
+1784688825 c:\users\54296\desktop\cafe_virtual\compras.h
+	"Fecha.h"
 
 1782949664 c:\users\54296\desktop\cafe_virtual\archivocompras.h
 	"Compras.h"
@@ -144,14 +146,14 @@
 1784685114 c:\users\54296\desktop\cafe_virtual\archivodetallecompras.h
 	"DetalleCompras.h"
 
-1783639429 source:c:\users\54296\desktop\cafe_virtual\archivoproveedores.cpp
+1784688213 source:c:\users\54296\desktop\cafe_virtual\archivoproveedores.cpp
 	<cstring>
 	<cstdio>
 	<iostream>
 	<iomanip>
 	"ArchivoProveedores.h"
 
-1783639445 source:c:\users\54296\desktop\cafe_virtual\proveedores.cpp
+1784688213 source:c:\users\54296\desktop\cafe_virtual\proveedores.cpp
 	<iostream>
 	<cstring>
 	<cctype>

@@ -74,6 +74,15 @@ void Proveedores::mostrar(){
     cout<<setw(30)<<locacionEmpresa;
     cout<<setw(20)<<telefonoEmpresa;
 
+    if(estadoProveedor == true){
+
+        cout<<setw(8)<<" ACTIVO";
+    }
+    else if(estadoProveedor == false){
+
+        cout<<setw(8)<<" INACTIVO";
+    }
+
     cout<<endl;
 }
 

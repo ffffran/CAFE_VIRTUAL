@@ -122,7 +122,7 @@ void ArchivoCompras::Listar(){
 
         compra = archivo.Leer(i);
         compra.mostrar();
-        cout<<endl;
+        cout<<endl<<endl;
     }
 }
 

@@ -115,7 +115,7 @@ void ArchivoVentas::Listar(){
 
         venta = archivo.Leer(i);
         venta.mostrar();
-        cout<<endl;
+        cout<<endl<<endl;
     }
 }
 

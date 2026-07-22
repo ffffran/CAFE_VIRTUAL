@@ -28,7 +28,6 @@ void modificarProveedor();
 /// /// /// /// /// /// /// ///
 
 void mostrarVentas();
-void mostrarDetalleVentas();
 
 void mostrarCompras();
 
