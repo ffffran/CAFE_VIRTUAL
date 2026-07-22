@@ -78,7 +78,7 @@ void Productos::cargar(){
     cout<<"Ingrese el tamanio del producto: ";
     cin>> tamanio;
 
-    if(categoria != 'P' && categoria != 'M' && categoria != 'G' && categoria != 'p' && categoria != 'm' && categoria != 'g'){
+    if(tamanio != 'P' && tamanio != 'M' && tamanio != 'G' && tamanio != 'p' && tamanio != 'm' && tamanio != 'g'){
 
         cout<<"Este tamanio no existe en el sistema."<<endl;
         system("pause");
@@ -96,14 +96,14 @@ void Productos::cargar(){
         cout<<"Ingrese el stock del producto: ";
         cin>> stock;
 
-        if(stock <= 0){
+        if(stock < 0){
 
             cout<<"El stock no puede ser negativo.";
             system("pause");
             system("cls");
         }
 
-    }while(stock <= 0);
+    }while(stock < 0);
 
     set_stockProducto(stock);
 
@@ -118,7 +118,7 @@ void Productos::cargar(){
 
         if(stockMin < 1){
 
-            cout<<"El stock no puede ser cero.";
+            cout<<"El stock no puede ser cero ni negativo.";
             system("pause");
             system("cls");
         }

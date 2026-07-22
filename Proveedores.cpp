@@ -18,46 +18,77 @@ void Proveedores::cargar(){
 
     set_idProveedor(archivo.Contar());
 
-    cout<<"Alta de Proveedores - Nombre"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese el nombre del Proveedor: ";
-    cin.getline(nombreEmpresa,60);
+    do{
+        cout<<"Alta de Proveedores - Nombre"<<endl;
+        cout<<"========================"<<endl;
+        cout<<"Ingrese el nombre del Proveedor: ";
+        cin.getline(nombreEmpresa,60);
+        if(strlen(nombreEmpresa)==0){
+            cout<<"No puede quedar vacío."<<endl;
+        }
+
+    }while(strlen(nombreEmpresa)==0);
 
     set_nombreEmpresa(nombreEmpresa);
 
     system("cls");
 
-    cout<<"Alta de Proveedores - Rubro"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese el nombre del Rubro: ";
-    cin.getline(rubroEmpresa,55);
+
+    do{
+        cout<<"Alta de Proveedores - Rubro"<<endl;
+        cout<<"========================"<<endl;
+        cout<<"Ingrese el nombre del Rubro: ";
+        cin.getline(rubroEmpresa,55);
+        if(strlen(rubroEmpresa)==0){
+            cout<<"No puede quedar vacío."<<endl;
+        }
+
+    }while(strlen(rubroEmpresa)==0);
 
     set_rubroEmpresa(rubroEmpresa);
 
     system("cls");
 
-    cout<<"Alta de Proveedores - Pais"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese el Pais del Proveedor: ";
-    cin.getline(paisEmpresa,40);
+    do{
+        cout<<"Alta de Proveedores - Pais"<<endl;
+        cout<<"========================"<<endl;
+        cout<<"Ingrese el Pais del Proveedor: ";
+        cin.getline(paisEmpresa,40);
+        if(strlen(paisEmpresa)==0){
+            cout<<"No puede quedar vacío."<<endl;
+        }
+
+    }while(strlen(paisEmpresa)==0);
 
     set_paisEmpresa(paisEmpresa);
 
     system("cls");
 
-    cout<<"Alta de Proveedores - Localidad"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese la Localidad del Proveedor: ";
-    cin.getline(locacionEmpresa,40);
+    do{
+        cout<<"Alta de Proveedores - Localidad"<<endl;
+        cout<<"========================"<<endl;
+        cout<<"Ingrese la Localidad del Proveedor: ";
+        cin.getline(locacionEmpresa,40);
+        if(strlen(locacionEmpresa)==0){
+            cout<<"No puede quedar vacío."<<endl;
+        }
+
+    }while(strlen(locacionEmpresa)==0);
 
     set_locacionEmpresa(locacionEmpresa);
 
     system("cls");
 
-    cout<<"Alta de Proveedores - Telefono"<<endl;
-    cout<<"========================"<<endl;
-    cout<<"Ingrese el telefono del Proveedor: ";
-    cin.getline(telefonoEmpresa,20);
+    do{
+        cout<<"Alta de Proveedores - Telefono"<<endl;
+        cout<<"========================"<<endl;
+        cout<<"Ingrese el telefono del Proveedor: ";
+        cin.getline(telefonoEmpresa,20);
+        if(strlen(telefonoEmpresa)==0){
+            cout<<"No puede quedar vacío."<<endl;
+        }
+
+    }while(strlen(telefonoEmpresa)==0);
 
     set_telefonoEmpresa(telefonoEmpresa);
 

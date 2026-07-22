@@ -62,229 +62,237 @@ void menuPrincipal(){
         cin>>opcion;
         system("cls");
 
-        switch(opcion){
+        bool menu = true;
 
-        case 1:
-
-            cout<<"MENU PRODUCTOS"<<endl;
-            cout<<"==================="<<endl;
-            cout<<"1 - Alta"<<endl;
-            cout<<"2 - Baja"<<endl;
-            cout<<"3 - Modificar"<<endl;
-            cout<<"4 - Listar"<<endl;
-            cout<<"0 - Salir"<<endl;
-            cout<<"==================="<<endl;
-            cin>>opcionproductos;
-
-            system("cls");
-
-            switch(opcionproductos){
+        while(menu){
+            switch(opcion){
 
             case 1:
 
-                altaProducto();
+                cout<<"MENU PRODUCTOS"<<endl;
+                cout<<"==================="<<endl;
+                cout<<"1 - Alta"<<endl;
+                cout<<"2 - Baja"<<endl;
+                cout<<"3 - Modificar"<<endl;
+                cout<<"4 - Listar"<<endl;
+                cout<<"0 - Volver al Menu Principal"<<endl;
+                cout<<"==================="<<endl;
+                cin>>opcionproductos;
+
+                system("cls");
+
+                switch(opcionproductos){
+
+                case 1:
+
+                    altaProducto();
+                    break;
+
+                case 2:
+
+                    bajaProducto();
+                    break;
+
+                case 3:
+
+                    modificarProducto();
+                    break;
+
+                case 4:{
+
+                    ArchivoProductos aProducto;
+                    aProducto.Listar();
+                    system("pause");
+                    break;
+                }
+                case 0:
+
+                    menu = false;
+                }
+
                 break;
 
             case 2:
 
-                bajaProducto();
+                cout<<"MENU PROVEEDORES"<<endl;
+                cout<<"==================="<<endl;
+                cout<<"1 - Alta"<<endl;
+                cout<<"2 - Baja"<<endl;
+                cout<<"3 - Modificar"<<endl;
+                cout<<"4 - Listar"<<endl;
+                cout<<"0 - Volver al Menu Principal"<<endl;
+                cout<<"==================="<<endl;
+                cin>>opcionproveedores;
+
+                system("cls");
+
+                switch(opcionproveedores){
+
+                case 1:
+
+                    altaProveedor();
+                    break;
+
+                case 2:
+
+                    bajaProveedor();
+                    break;
+
+                case 3:
+
+                    modificarProveedor();
+                    break;
+
+                case 4:
+
+                    mostrarProveedores();
+                    break;
+
+                case 0:
+
+                    menu = false;
+                }
+
                 break;
 
             case 3:
 
-                modificarProducto();
+                cout<<"MENU CLIENTES"<<endl;
+                cout<<"==================="<<endl;
+                cout<<"1 - Alta"<<endl;
+                cout<<"2 - Baja"<<endl;
+                cout<<"3 - Modificar"<<endl;
+                cout<<"4 - Listar"<<endl;
+                cout<<"0 - Volver al Menu Principal"<<endl;
+                cout<<"==================="<<endl;
+                cin>>opcionclientes;
+
+                system("cls");
+
+                switch(opcionclientes){
+
+                case 1:
+
+                    altaCliente();
+                    break;
+
+                case 2:
+
+                    bajaCliente();
+                    break;
+
+                case 3:
+
+                    modificarCliente();
+                    break;
+
+                case 4:
+
+                    mostrarClientes();
+                    break;
+
+                case 0:
+
+                    menu = false;
+                }
+
                 break;
 
-            case 4:{
+            case 4:
 
-                ArchivoProductos aProducto;
-                aProducto.Listar();
+                cout<<"MENU COMPRAS"<<endl;
+                cout<<"==================="<<endl;
+                cout<<"1 - Nueva Compra"<<endl;
+                cout<<"2 - Ver Compras"<<endl;
+                cout<<"0 - Volver al Menu Principal"<<endl;
+                cout<<"==================="<<endl;
+                cin>>opcioncompras;
+                system("cls");
+
+                switch(opcioncompras){
+
+                case 1:
+
+                    menuCompra();
+                    break;
+
+                case 2:{
+
+                    ArchivoDetalleCompras detalle;
+                    int id;
+
+                    mostrarCompras();
+                    cout<<endl;
+                    cout<<"Ingrese el ID de una compra para ver su detalle: ";
+                    cin>>id;
+                    system("cls");
+
+                    detalle.Mostrar1(id);
+
+                    break;
+                }
+
+                case 0:
+
+                    menu = false;
+                }
+
+                break;
+
+            case 5:
+
+                cout<<"MENU VENTAS"<<endl;
+                cout<<"==================="<<endl;
+                cout<<"1 - Nueva Venta"<<endl;
+                cout<<"2 - Ver Ventas"<<endl;
+                cout<<"0 - Volver al Menu Principal"<<endl;
+                cout<<"==================="<<endl;
+                cin>>opcionventas;
+                system("cls");
+
+                switch(opcionventas){
+
+                case 1:
+
+                    menuVenta();
+                    break;
+
+                case 2:{
+
+                    ArchivoDetalleVentas detalle;
+                    int id;
+
+                    mostrarVentas();
+                    cout<<endl;
+                    cout<<"Ingrese el ID de una compra para ver su detalle: ";
+                    cin>>id;
+                    system("cls");
+
+                    detalle.Mostrar1(id);
+
+                    break;
+                }
+
+                case 0:
+
+                    menu = false;
+                }
+
+                break;
+
+            case 6:
+
+                menuReportes();
+                menu = false;
+                break;
                 system("pause");
-                break;
-            }
+
             case 0:
 
-                break;
+                return;
             }
-
-            break;
-
-        case 2:
-
-            cout<<"MENU PROVEEDORES"<<endl;
-            cout<<"==================="<<endl;
-            cout<<"1 - Alta"<<endl;
-            cout<<"2 - Baja"<<endl;
-            cout<<"3 - Mostrar"<<endl;
-            cout<<"4 - Modificar"<<endl;
-            cout<<"0 - Salir"<<endl;
-            cout<<"==================="<<endl;
-            cin>>opcionproveedores;
 
             system("cls");
-
-            switch(opcionproveedores){
-
-            case 1:
-
-                altaProveedor();
-                break;
-
-            case 2:
-
-                bajaProveedor();
-                break;
-
-            case 3:
-
-                mostrarProveedores();
-                break;
-
-            case 4:
-
-                modificarProveedor();
-                break;
-
-            case 0:
-
-                break;
-            }
-
-            break;
-
-        case 3:
-
-            cout<<"MENU CLIENTES"<<endl;
-            cout<<"==================="<<endl;
-            cout<<"1 - Alta"<<endl;
-            cout<<"2 - Baja"<<endl;
-            cout<<"3 - Mostrar"<<endl;
-            cout<<"4 - Modificar"<<endl;
-            cout<<"0 - Salir"<<endl;
-            cout<<"==================="<<endl;
-            cin>>opcionclientes;
-
-            system("cls");
-
-            switch(opcionclientes){
-
-            case 1:
-
-                altaCliente();
-                break;
-
-            case 2:
-
-                bajaCliente();
-                break;
-
-            case 3:
-
-                mostrarClientes();
-                break;
-
-            case 4:
-
-                modificarCliente();
-                break;
-
-            case 0:
-
-                break;
-            }
-
-            break;
-
-        case 4:
-
-            cout<<"MENU COMPRAS"<<endl;
-            cout<<"==================="<<endl;
-            cout<<"1 - Nueva Compra"<<endl;
-            cout<<"2 - Ver Compras"<<endl;
-            cout<<"0 - Salir"<<endl;
-            cout<<"==================="<<endl;
-            cin>>opcioncompras;
-            system("cls");
-
-            switch(opcioncompras){
-
-            case 1:
-
-                menuCompra();
-                break;
-
-            case 2:{
-
-                ArchivoDetalleCompras detalle;
-                int id;
-
-                mostrarCompras();
-                cout<<endl;
-                cout<<"Ingrese el ID de una compra para ver su detalle: ";
-                cin>>id;
-                system("cls");
-
-                detalle.Mostrar1(id);
-
-                break;
-            }
-
-            case 0:
-
-                break;
-            }
-
-            break;
-
-        case 5:
-
-            cout<<"MENU VENTAS"<<endl;
-            cout<<"==================="<<endl;
-            cout<<"1 - Nueva Venta"<<endl;
-            cout<<"2 - Ver Ventas"<<endl;
-            cout<<"0 - Salir"<<endl;
-            cout<<"==================="<<endl;
-            cin>>opcionventas;
-            system("cls");
-
-            switch(opcionventas){
-
-            case 1:
-
-                menuVenta();
-                break;
-
-            case 2:{
-
-                ArchivoDetalleVentas detalle;
-                int id;
-
-                mostrarVentas();
-                cout<<endl;
-                cout<<"Ingrese el ID de una compra para ver su detalle: ";
-                cin>>id;
-                system("cls");
-
-                detalle.Mostrar1(id);
-
-                break;
-            }
-
-            case 0:
-
-                break;
-            }
-
-            break;
-
-        case 6:
-
-            menuReportes();
-            break;
-
-        case 0:
-
-            return;
         }
     }
 }
@@ -719,34 +727,34 @@ void menuCompra(){
             cout<<"Cuantas unidades de "<<producto.get_nombreProducto()<<" desea llevar?"<<endl;
             cin>>UnidadesProductoElegidoCompra;
 
-            if(UnidadesProductoElegidoCompra > producto.get_stockProducto()){
+            if(UnidadesProductoElegidoCompra == 0){
 
-                cout<<"Ingrese una cantidad menor, no hay suficiente stock.";
+                cout<<"!!!VENTA CANCELADA!!!";
                 system("pause");
+                return;
             }
-            else{
+            else if(UnidadesProductoElegidoCompra > 0){
 
                 cantidadValida = true;
             }
+            else{
+
+                cout<<"Ingrese una cantidad valida (mayor a cero)"<<endl;
+                system("pause");
+            }
+
         }
 
-        if(UnidadesProductoElegidoCompra == 0){
 
-            cout<<"!!!VENTA CANCELADA!!!";
-            system("pause");
-            return;
-        }
-        else{
+        ///===================================///
+        /// ALMACENAR STOCK TEMPORALMENTE///
+        ///===================================///
 
-            ///===================================///
-            /// ALMACENAR STOCK TEMPORALMENTE///
-            ///===================================///
+        posicionesProductos[cantidadProductos] = posicion;
+        cantidadesProductos[cantidadProductos] = UnidadesProductoElegidoCompra;
 
-            posicionesProductos[cantidadProductos] = posicion;
-            cantidadesProductos[cantidadProductos] = UnidadesProductoElegidoCompra;
+        cantidadProductos++;
 
-            cantidadProductos++;
-        }
 
         ///==================================///
         /// GENERAR DETALLE Y ACUMULAR TOTAL ///
@@ -822,7 +830,9 @@ void menuCompra(){
 
 void menuReportes(){
 
-    while(true){
+    bool w = true;
+
+    while(w){
 
         int Opcion;
 
@@ -846,7 +856,7 @@ void menuReportes(){
         cout<<endl;
         cout<<"8 - Proveedores sin comprar el anio pasado";   ///PROBEEDORES A LOS QUE NO SE LE HAYAN REALIZADO COMPRAS EL AÑO PASADO !!!NECESITAMOS FECHAS!!!
         cout<<endl;
-        cout<<"0 - Salir"<<endl;
+        cout<<"0 - Volver al Menu Principal"<<endl;
         cout<<"========================"<<endl;
         cout<< "INGRESE OPCION: ";
         cin>>Opcion;
@@ -1142,7 +1152,7 @@ void menuReportes(){
             GastoCliente* listaGastos = new GastoCliente[cantClientes];
 
             //Iniciamos la lista con los ids ya existentes
-            for (int i = 0; i < cantClientes; i++) {
+            for (int i = 1; i < cantClientes; i++) {
                 listaGastos[i].id = archClientes.Leer(i).get_idCliente();
                 listaGastos[i].totalGastado = 0;
             }
@@ -1313,9 +1323,13 @@ void menuReportes(){
             cout << "-------------------------------------------------------" << endl;
 
             bool encontrados = false;
+
             for (int i = 0; i < cantP; i++){
+
                 if (!tieneActividad[i]){
+
                     Proveedores p = archPro.Leer(i);
+
                     //Solo mostramos a los proveedores activos
                     if(p.get_estadoProveedor()){
                         cout << left << setw(6) << p.get_idProveedor()
@@ -1339,6 +1353,7 @@ void menuReportes(){
 
         case 0:
 
+            w = false;
             return;
         }
     }
@@ -1698,6 +1713,7 @@ void altaCliente(){
 
             archivo.Listar();
             cout<<"El cliente se guardo correctamente! :)"<<endl;
+            system("pause");
         }
         else{
 
@@ -1984,8 +2000,6 @@ void mostrarVentas(){
     ArchivoVentas archivo;
 
     archivo.Listar();
-
-    system("pause");
 }
 
 void mostrarDetalleVentas(){
