@@ -22,7 +22,7 @@ using namespace std;
 
 void menuPrincipal(){
 
-    int opcion, opcionproductos, opcionclientes, opcionproveedores;
+    int opcion, opcionproductos, opcionclientes, opcionproveedores, opcioncompras, opcionventas;
 
     while(true){
 
@@ -56,7 +56,6 @@ void menuPrincipal(){
         cout<<"5 - Ventas"<<endl;
         cout<<"-----------------"<<endl;
         cout<<"6 - Reportes"<<endl;
-        cout<<"7 - ABML"<<endl;
         cout<<"0 - Salir"<<endl;
         cout<<"========================"<<endl;
         cout<< "INGRESE OPCION: ";
@@ -192,22 +191,89 @@ void menuPrincipal(){
 
         case 4:
 
-            menuCompra();
+            cout<<"MENU COMPRAS"<<endl;
+            cout<<"==================="<<endl;
+            cout<<"1 - Nueva Compra"<<endl;
+            cout<<"2 - Ver Compras"<<endl;
+            cout<<"0 - Salir"<<endl;
+            cout<<"==================="<<endl;
+            cin>>opcioncompras;
+            system("cls");
+
+            switch(opcioncompras){
+
+            case 1:
+
+                menuCompra();
+                break;
+
+            case 2:{
+
+                ArchivoDetalleCompras detalle;
+                int id;
+
+                mostrarCompras();
+                cout<<endl;
+                cout<<"Ingrese el ID de una compra para ver su detalle: ";
+                cin>>id;
+                system("cls");
+
+                detalle.Mostrar1(id);
+
+                break;
+            }
+
+            case 0:
+
+                break;
+            }
+
             break;
 
         case 5:
 
-            menuVenta();
+            cout<<"MENU VENTAS"<<endl;
+            cout<<"==================="<<endl;
+            cout<<"1 - Nueva Venta"<<endl;
+            cout<<"2 - Ver Ventas"<<endl;
+            cout<<"0 - Salir"<<endl;
+            cout<<"==================="<<endl;
+            cin>>opcionventas;
+            system("cls");
+
+            switch(opcionventas){
+
+            case 1:
+
+                menuVenta();
+                break;
+
+            case 2:{
+
+                ArchivoDetalleVentas detalle;
+                int id;
+
+                mostrarVentas();
+                cout<<endl;
+                cout<<"Ingrese el ID de una compra para ver su detalle: ";
+                cin>>id;
+                system("cls");
+
+                detalle.Mostrar1(id);
+
+                break;
+            }
+
+            case 0:
+
+                break;
+            }
+
             break;
 
         case 6:
 
             menuReportes();
-            break;
-
-        case 7:
-
-            menuAbm();
             break;
 
         case 0:
@@ -902,7 +968,7 @@ void menuAbm(){
 
             case 5:
 
-                mostrarDetalleVentas();
+                //mostrarDetalleVentas();
                 break;
 
             case 6:
@@ -912,7 +978,7 @@ void menuAbm(){
 
             case 7:
 
-                mostrarDetalleCompras();
+                //mostrarDetalleCompras();
                 break;
 
             case 0:
@@ -1164,16 +1230,217 @@ void menuReportes(){
 
             break;
         }
-            //FALTAN:
-            ///
-            ///case 5:
-            ///
-            ///case 6:
-            ///
-            ///case 7:
-            ///
-            ///case 8:
-            ///
+
+        case 5:{
+            ArchivoProductos pArchivo;
+            ArchivoDetalleVentas dvArchivo;
+            Productos producto;
+            DetalleVentas detalle;
+            char catIngresada;
+
+            system("cls");
+            cout << "Ventas por categoria:"<< endl;
+            cout << "============================================" << endl;
+            cout << "Escoger una de las categorias:"<<endl;
+            cout << "B- Bebida"<<endl<<"C- Cafeteria"<<endl<<"P- Pasteleria"<< endl;
+            cout << "============================================" << endl;
+            cout << "Categoria: ";
+            cin >> catIngresada;
+            system("cls");
+            //Totales de producto y detalle de venta
+            int cantProductos = pArchivo.Contar();
+            int cantDetalles = dvArchivo.contarRegistros();
+            bool huboVentas = false;
+
+            cout << endl << "Listado de ventas para la categoria: " << catIngresada << endl;
+            cout << "============================================" << endl;
+
+            //Recorremos los productos
+            for(int i = 0; i < cantProductos; i++){
+                producto = pArchivo.Leer(i);
+
+            //Vemos si esta en esa categoria
+                if(producto.get_categoriaProducto() == catIngresada){
+                    int unidadesVendidas = 0;
+                    float recaudacionProducto = 0;
+
+            //Buscamos el producto en los detalles de ventas
+                    for(int j = 0; j < cantDetalles; j++) {
+                        detalle = dvArchivo.Leer(j);
+
+                        if(detalle.get_idProductoDetalle() == producto.get_idProducto()){
+                            unidadesVendidas += detalle.get_cantidadUnidadesDetalle();
+                            recaudacionProducto += detalle.get_subTotalDetalle();
+                        }
+                    }
+
+            //Resultado
+                    if(unidadesVendidas > 0){
+                        cout << "Producto: " << producto.get_nombreProducto() << endl;
+                        cout << "Unidades totales: " << unidadesVendidas << endl;
+                        cout << "Recaudacion total: " << recaudacionProducto << "$"<< endl;
+                        cout << "============================================" << endl;
+                        huboVentas = true;
+                    }
+                }
+            }
+
+            if(!huboVentas) {
+                cout << "No hay ventas para esta categoria" << endl;
+            }
+
+            system("pause");
+            break;
+        }
+
+        case 6:{
+            ArchivoClientes archClientes;
+            ArchivoVentas archVentas;
+
+            int cantClientes = archClientes.Contar();
+            int cantVentas = archVentas.contarRegistros();
+
+            //Nos fijamos si existen clientes
+            if (cantClientes == 0) {
+                cout << "No hay clientes registrados" << endl;
+                system("pause");
+                break;
+            }
+
+            //Estructura para asociar el id con el total
+            struct GastoCliente {
+                int id;
+                float totalGastado;
+            };
+
+            //Reservamos memoria para todos los clientes
+            GastoCliente* listaGastos = new GastoCliente[cantClientes];
+
+            //Iniciamos la lista con los ids ya existentes
+            for (int i = 0; i < cantClientes; i++) {
+                listaGastos[i].id = archClientes.Leer(i).get_idCliente();
+                listaGastos[i].totalGastado = 0;
+            }
+
+            //Leemos el archivo de ventas para vincular todo
+            for (int i = 0; i < cantVentas; i++) {
+                Ventas v = archVentas.Leer(i);
+                int idCli = v.get_idClienteVenta();
+
+                //Sumamos el total del cliente buscandolos por id
+                for (int j = 0; j < cantClientes; j++) {
+
+                    if (listaGastos[j].id == idCli) {
+                        listaGastos[j].totalGastado += v.get_totalVenta();
+                        break;
+                    }
+                }
+            }
+
+            //Ordenamos la lista de mayor a menor gasto
+            for (int i = 0; i < cantClientes - 1; i++) {
+                for (int j = 0; j < cantClientes - i - 1; j++) {
+                    if (listaGastos[j].totalGastado < listaGastos[j + 1].totalGastado) {
+                        GastoCliente aux = listaGastos[j];
+                        listaGastos[j] = listaGastos[j + 1];
+                        listaGastos[j + 1] = aux;
+                    }
+                }
+            }
+
+            system("cls");
+            cout << "===================================================" << endl;
+            cout << "           TOP 10 CLIENTES CON MAYOR GASTO         " << endl;
+            cout << "===================================================" << endl;
+            cout << left << setw(10) << "PUESTO" << setw(10) << "ID" << setw(20) << "NOMBRE" << "TOTAL GASTADO" << endl;
+            cout << "---------------------------------------------------" << endl;
+
+            int tope = (cantClientes < 10) ? cantClientes : 10;
+            for (int i = 0; i < tope; i++) {
+                //Mostramos solo si hicieron al menos una compra
+
+                if (listaGastos[i].totalGastado > 0) {
+                    int pos = archClientes.Buscar(listaGastos[i].id);
+                    Clientes c = archClientes.Leer(pos);
+
+                    cout << left << setw(10) << (i + 1)
+                        << setw(10) << listaGastos[i].id
+                        << setw(20) << c.get_nombreCliente()
+                        << "$ " << fixed << setprecision(2) << listaGastos[i].totalGastado << endl;
+                }
+            }
+
+            cout << "===================================================" << endl;
+            //Liberamos memoria
+            delete[] listaGastos;
+            system("pause");
+            break;
+        }
+
+        case 7:{
+            ArchivoVentas archV;
+            Ventas v;
+            int tipoReporte;
+            float acuTotal = 0;
+            int totalRegistros = archV.contarRegistros();
+            system("cls");
+
+            cout << "Ventas totales:" << endl;
+            cout << "==========================================" << endl;
+            cout << "1 - Ventas de una fecha en especifico" << endl;
+            cout << "2 - Ventas de un mes en especifico" << endl;
+            cout << "==========================================" << endl;
+            cout << "Seleccione una opcion: ";
+            cin >> tipoReporte;
+            system("cls");
+
+            if (tipoReporte == 1) {
+                int d, m, a;
+                cout << "Ingresar el dia: " << endl;
+                cin >> d;
+                cout << "Ingresar el mes: " << endl;
+                cin >> m;
+                cout << "Ingresar el anio: " << endl;
+                cin >> a;
+
+                for (int i = 0; i < totalRegistros; i++) {
+                    v = archV.Leer(i);
+                    Fecha fv = v.get_fechaVenta();
+
+                    //Comparamos todo para ver si concuerda con lo escrito por el usuario
+                    if (fv.get_dia() == d && fv.get_mes() == m && fv.get_anio() == a) {
+                        acuTotal += v.get_totalVenta();
+                    }
+                }
+                cout << "==========================================" << endl;
+                cout << "Recaudacion total del dia " << d << "/" << m << "/" << a << ": " << acuTotal << "$" << endl;
+
+            }
+            else if (tipoReporte == 2) {
+
+                int m, a;
+                cout << "Ingresar el mes: " << endl;
+                cin >> m;
+                cout << "Ingresar el anio: " << endl;
+                cin >> a;
+
+                for (int i = 0; i < totalRegistros; i++) {
+                    v = archV.Leer(i);
+                    Fecha fv = v.get_fechaVenta();
+
+                    //Comparamos mes y año
+                    if (fv.get_mes() == m && fv.get_anio() == a) {
+                        acuTotal += v.get_totalVenta();
+                    }
+                }
+                cout << "==========================================" << endl;
+                cout << "Recaudacion total del mes " << m << "/" << a << ": " << acuTotal << "$" << endl;
+            }
+
+            system("pause");
+            break;
+        }
+
         case 0:
 
             return;
@@ -2024,17 +2291,6 @@ void mostrarCompras(){
     ArchivoCompras archivo;
 
     archivo.Listar();
-
-    system("pause");
-}
-
-void mostrarDetalleCompras(){
-
-    ArchivoDetalleCompras archivo;
-
-    archivo.Listar();
-
-    system("pause");
 }
 
 void encabezadoProductos(){

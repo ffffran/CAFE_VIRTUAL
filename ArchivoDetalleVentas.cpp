@@ -119,6 +119,33 @@ void ArchivoDetalleVentas::Listar(){
     }
 }
 
+void ArchivoDetalleVentas::Mostrar1(int id){
 
+    DetalleVentas detalle;
+
+    int cantidad = contarRegistros();
+
+    bool encontrado = false;
+
+    for(int i = 0; i < cantidad; i++){
+
+        detalle = Leer(i);
+
+        if(detalle.get_idVentaDetalle() == id){
+
+            detalle.mostrar();
+            cout << endl;
+            encontrado = true;
+
+        }
+    }
+
+    if(!encontrado){
+
+        cout<<"El id buscado no pertenece a ninguna venta."<<endl;
+    }
+
+    system("pause");
+}
 
 

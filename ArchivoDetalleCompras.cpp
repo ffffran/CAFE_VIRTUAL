@@ -107,7 +107,7 @@ void ArchivoDetalleCompras::Listar(){
     DetalleCompras detalleCompra;
     ArchivoDetalleCompras archivo;
 
-    cout<<"DETALLE VENTAS"<<endl<<"======================="<<endl;
+    cout<<"DETALLE COMPRAS"<<endl<<"======================="<<endl;
 
     int cantidad = archivo.contarRegistros();
 
@@ -119,6 +119,33 @@ void ArchivoDetalleCompras::Listar(){
     }
 }
 
+void ArchivoDetalleCompras::Mostrar1(int id){
 
+    DetalleCompras detalle;
+
+    int cantidad = contarRegistros();
+
+    bool encontrado = false;
+
+    for(int i = 0; i < cantidad; i++){
+
+        detalle = Leer(i);
+
+        if(detalle.get_idCompraDetalle() == id){
+
+            detalle.mostrar();
+            cout << endl;
+            encontrado = true;
+
+        }
+    }
+
+    if(!encontrado){
+
+        cout<<"El id buscado no pertenece a ninguna compra."<<endl;
+    }
+
+    system("pause");
+}
 
 

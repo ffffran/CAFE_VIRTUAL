@@ -16,6 +16,7 @@ class ArchivoDetalleVentas{
         int contarRegistros();
         int Buscar(int id);
         void Listar();
+        void Mostrar1(int id);
 };
 
 

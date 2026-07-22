@@ -6,7 +6,7 @@ using namespace std;
 
 void DetalleCompras::mostrar(){
 
-    cout<<"ID VENTA: "<< idCompraDetalle<<endl;
+    cout<<"ID COMPRA: "<< idCompraDetalle<<endl;
     cout<<"ID PRODUCTO: "<< idProductoDetalle<<endl;
     cout<<"CANT. UNIDADES: "<< cantidadUnidadesDetalle<<endl;
     cout<<"PRECIO UNITARIO: $"<< precioUnitarioDetalle<<endl;

@@ -42,7 +42,15 @@ void Productos::cargar(){
     cout<<"Ingrese la categoria del producto: ";
     cin>> categoria;
 
-    set_categoriaProducto(categoria);
+    if(categoria != 'B' && categoria != 'C' && categoria != 'P'){
+
+        cout<<"Esta categoria no existe en el sistema."<<endl;
+        system("pause");
+    }
+    else{
+
+        set_categoriaProducto(categoria);
+    }
 
     system("cls");
 

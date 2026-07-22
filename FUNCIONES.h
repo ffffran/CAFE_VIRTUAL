@@ -1,11 +1,14 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
+
+
 void menuPrincipal();
 void menuVenta();
 void menuCompra();
-void menuAbm();
 void menuReportes();
+
+/// /// /// /// /// /// /// ///
 
 void altaProducto();
 void bajaProducto();
@@ -17,18 +20,24 @@ void bajaCliente();
 void mostrarClientes();
 void modificarCliente();
 
-void mostrarVentas();
-void mostrarDetalleVentas();
-
 void altaProveedor();
 void bajaProveedor();
 void mostrarProveedores();
 void modificarProveedor();
 
+/// /// /// /// /// /// /// ///
+
+void mostrarVentas();
+void mostrarDetalleVentas();
+
 void mostrarCompras();
-void mostrarDetalleCompras();
+
+/// /// /// /// /// /// /// ///
 
 void encabezadoProductos();
 void encabezadoClientes();
 void encabezadoProveedores();
+
+/// /// /// /// /// /// /// ///
+
 #endif // FUNCIONES_H_INCLUDED
